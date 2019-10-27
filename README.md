@@ -2,6 +2,8 @@
 
 > A productivity concept
 
+![Cover](./docs/cover.png)
+
 #### Build Setup
 
 ``` bash
