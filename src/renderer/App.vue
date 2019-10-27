@@ -5,11 +5,18 @@
 </template>
 
 <script>
-  export default {
-    name: 'intrepid'
-  }
+export default {
+  name: "intrepid"
+};
 </script>
 
 <style>
-  /* CSS */
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
 </style>

@@ -27,7 +27,9 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             nodeIntegrationInWorker: true
-        }
+        },
+        vibrancy: "dark",
+        backgroundColor: "#80FFFFFF"
     });
 
     mainWindow.loadURL(winURL);
