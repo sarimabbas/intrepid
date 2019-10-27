@@ -19,7 +19,21 @@ export default {
     <!-- bottom -->
     <div class="toolbar">
       <div class="toolbar-buttons">
-        <more-horizontal-icon />
+        <b-dropdown position="is-top-right" :mobile-modal="false" aria-role="menu">
+          <div slot="trigger" class="more">
+            <more-horizontal-icon />
+          </div>
+          <b-dropdown-item aria-role="menu-item">Action</b-dropdown-item>
+          <b-dropdown-item aria-role="menu-item">Another action</b-dropdown-item>
+          <b-dropdown-item aria-role="menu-item">Something else</b-dropdown-item>
+        </b-dropdown>
+
+        <!-- <b-dropdown aria-role="list">
+          <more-horizontal-icon slot="trigger" />
+          <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+          <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+          <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+        </b-dropdown>-->
         <search-icon />
       </div>
     </div>
@@ -50,6 +64,10 @@ export default {
   background-color: #333333;
   padding: 10px;
   color: white;
+}
+
+.more {
+  cursor: pointer;
 }
 
 .toolbar-buttons {
