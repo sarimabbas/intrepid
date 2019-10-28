@@ -1,4 +1,8 @@
 <script>
+const remote = require("electron").remote;
+const electronFs = remote.require("fs");
+const electronDialog = remote.dialog;
+
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
 // import Log from "electron-log";
@@ -33,6 +37,15 @@ export default {
   data() {
     return {
       editor: new Editor({
+        onUpdate: ({ getJSON }) => {
+          const content = getJSON();
+          const json = JSON.stringify(content);
+          try {
+            electronFs.writeFileSync("myfile.json", json, "utf-8");
+          } catch (e) {
+            alert("Failed to save the file !");
+          }
+        },
         extensions: [
           new Blockquote(),
           new BulletList(),
@@ -81,11 +94,7 @@ export default {
     ...mapState("Interface", ["s_sidebar_toggle"])
   },
   methods: {
-    ...mapActions("Interface", ["m_sidebar_toggle"]),
-    sidebarClick: function() {
-      console.log(this.s_sidebar_toggle);
-      return this.m_sidebar_toggle();
-    }
+    ...mapActions("Interface", ["m_sidebar_toggle"])
   },
   beforeDestroy() {
     this.editor.destroy();
@@ -105,7 +114,7 @@ export default {
     <div class="toolbar">
       <div class="toolbar-buttons">
         <div class="sidebar">
-          <sidebar-icon @click="sidebarClick" />
+          <sidebar-icon @click="m_sidebar_toggle" />
         </div>
         <share-icon />
       </div>
