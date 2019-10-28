@@ -1,6 +1,8 @@
 <script>
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
+// import Log from "electron-log";
+import { mapState, mapActions } from "vuex";
 
 import {
   Blockquote,
@@ -75,6 +77,16 @@ export default {
       })
     };
   },
+  computed: {
+    ...mapState("Interface", ["s_sidebar_toggle"])
+  },
+  methods: {
+    ...mapActions("Interface", ["m_sidebar_toggle"]),
+    sidebarClick: function() {
+      console.log(this.s_sidebar_toggle);
+      return this.m_sidebar_toggle();
+    }
+  },
   beforeDestroy() {
     this.editor.destroy();
   }
@@ -92,7 +104,9 @@ export default {
     <!-- bottom preferences -->
     <div class="toolbar">
       <div class="toolbar-buttons">
-        <sidebar-icon />
+        <div class="sidebar">
+          <sidebar-icon @click="sidebarClick" />
+        </div>
         <share-icon />
       </div>
     </div>
@@ -103,6 +117,10 @@ export default {
 <style scoped>
 .content {
   word-break: break-all;
+}
+
+.sidebar {
+  cursor: pointer;
 }
 
 .editor {
