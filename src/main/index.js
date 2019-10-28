@@ -28,7 +28,7 @@ function createWindow() {
             nodeIntegration: true,
             nodeIntegrationInWorker: true
         },
-        vibrancy: "dark",
+        vibrancy: "ultra-dark",
         backgroundColor: "#80FFFFFF"
     });
 
