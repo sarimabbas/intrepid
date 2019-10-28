@@ -17,5 +17,9 @@ export default {
   height: 100vh;
   width: 100%;
 }
+
+.vue-feather {
+  cursor: pointer;
+}
 </style>
 

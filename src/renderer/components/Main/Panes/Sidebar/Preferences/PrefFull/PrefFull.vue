@@ -1,39 +1,37 @@
 
 <script>
-export default {};
+import { XIcon } from "vue-feather-icons";
+export default {
+  components: {
+    XIcon
+  }
+};
 </script>
 
 <template>
-  <form action>
-    <div class="modal-card" style="width: auto">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Login</p>
-      </header>
-      <section class="modal-card-body">
-        <b-field label="Email">
-          <b-input type="email" :value="email" placeholder="Your email" required></b-input>
-        </b-field>
-
-        <b-field label="Password">
-          <b-input
-            type="password"
-            :value="password"
-            password-reveal
-            placeholder="Your password"
-            required
-          ></b-input>
-        </b-field>
-
-        <b-checkbox>Remember me</b-checkbox>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Close</button>
-        <button class="button is-primary">Login</button>
-      </footer>
-    </div>
-  </form>
+  <div class="modal-card" style="min-width: 75vw; min-height: 50vw">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Preferences</p>
+      <XIcon @click="$parent.close()" class="vue-feather" />
+    </header>
+    <section class="modal-card-body">
+      <b-tabs type="is-boxed">
+        <b-tab-item
+          label="General"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio corporis eius dolorum est sunt nihil! Laborum dicta veniam asperiores laboriosam aperiam, ab doloribus consequuntur ad enim quam debitis eaque similique!</b-tab-item>
+        <b-tab-item label="Theming"></b-tab-item>
+        <b-tab-item label="Markdown"></b-tab-item>
+      </b-tabs>
+    </section>
+    <footer class="modal-card-foot">
+      <p>All changes are saved automatically.</p>
+    </footer>
+  </div>
 </template>
 
 
-<style>
+<style scoped>
+.modal-card-foot {
+  display: block;
+}
 </style>

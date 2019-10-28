@@ -18,7 +18,8 @@ export default {
       this.$buefy.modal.open({
         parent: this,
         component: PrefFull,
-        hasModalCard: true
+        hasModalCard: true,
+        canCancel: false
       });
     }
   }
