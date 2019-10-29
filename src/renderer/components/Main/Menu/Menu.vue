@@ -22,6 +22,11 @@ export default {
         properties: ["openDirectory", "treatPackageAsDirectory"],
         filters: [{ name: "Chronicle Files", extensions: [".crncl"] }]
       });
+
+      if (!file_paths) {
+        return;
+      }
+
       const file_path = file_paths[0];
       this.m_current_file_set({ file_path });
 
@@ -44,7 +49,7 @@ export default {
         }
       }
 
-      console.log(file_path);
+      // e.g. file_path === .../.../Untitled.crncl
 
       // flush contents to current path
       const content = EditorInstance.getJSON();
