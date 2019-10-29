@@ -1,7 +1,5 @@
-const remote = require("electron").remote;
-const electronFs = remote.require("fs");
-import store from "../../../../store";
-
+const { remote } = require("electron");
+const currentWindow = remote.getCurrentWindow();
 import { Editor } from "tiptap";
 import Image from "./extensions/Image";
 import {
@@ -26,6 +24,10 @@ import {
 } from "tiptap-extensions";
 
 const EditorInstance = new Editor({
+    onUpdate() {
+        currentWindow.setDocumentEdited(true);
+    },
+
     extensions: [
         new Blockquote(),
         new BulletList(),

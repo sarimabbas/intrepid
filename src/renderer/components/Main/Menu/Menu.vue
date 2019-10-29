@@ -31,6 +31,11 @@ export default {
     },
     saveFile() {
       // if path doesn't exist, ask where to save it
+      if (!this.s_current_file_path) {
+        console.log("TODO");
+        return;
+      }
+
       // flush contents to current path
       const content = EditorInstance.getJSON();
       const json = JSON.stringify(content);
