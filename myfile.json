@@ -3,68 +3,30 @@
     "content": [
         {
             "type": "heading",
+            "attrs": { "level": 1 },
+            "content": [{ "type": "text", "text": "hello 1" }]
+        },
+        {
+            "type": "heading",
             "attrs": { "level": 2 },
-            "content": [{ "type": "text", "text": "Hi there," }]
+            "content": [{ "type": "text", "text": "hello 2" }]
         },
         {
-            "type": "paragraph",
-            "content": [
-                { "type": "text", "text": "this is a very " },
-                {
-                    "type": "text",
-                    "marks": [{ "type": "italic" }],
-                    "text": "basic"
-                },
-                { "type": "text", "text": " example of tiptap." }
-            ]
+            "type": "heading",
+            "attrs": { "level": 3 },
+            "content": [{ "type": "text", "text": "hello 3" }]
         },
+        { "type": "paragraph" },
         {
-            "type": "code_block",
-            "content": [{ "type": "text", "text": "body { display: none; }" }]
+            "type": "heading",
+            "attrs": { "level": 2 },
+            "content": [{ "type": "text", "text": "hello 2" }]
         },
+        { "type": "paragraph" },
         {
-            "type": "bullet_list",
-            "content": [
-                {
-                    "type": "list_item",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "content": [
-                                { "type": "text", "text": "A regular list" }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "list_item",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "content": [
-                                { "type": "text", "text": "With regular items" }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "blockquote",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "content": [
-                        { "type": "text", "text": "It's amazing 👏 " },
-                        { "type": "hard_break" },
-                        { "type": "text", "text": "– mom" }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "content": [{ "type": "text", "text": "ekjfhewkjehf" }]
+            "type": "heading",
+            "attrs": { "level": 2 },
+            "content": [{ "type": "text", "text": "hello 1" }]
         }
     ]
 }

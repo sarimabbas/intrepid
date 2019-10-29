@@ -27,6 +27,9 @@ import {
   Underline,
   History
 } from "tiptap-extensions";
+
+import Image from "./extensions/Image";
+
 export default {
   components: {
     EditorContent,
@@ -41,9 +44,13 @@ export default {
           const content = getJSON();
           const json = JSON.stringify(content);
           try {
-            electronFs.writeFileSync("myfile.json", json, "utf-8");
+            const dir = "./myfile.crncl";
+            if (!electronFs.existsSync(dir)) {
+              electronFs.mkdirSync(dir);
+            }
+            electronFs.writeFileSync(dir + "/myfile.json", json, "utf-8");
           } catch (e) {
-            alert("Failed to save the file !");
+            alert(e);
           }
         },
         extensions: [
@@ -63,7 +70,8 @@ export default {
           new Italic(),
           new Strike(),
           new Underline(),
-          new History()
+          new History(),
+          new Image()
         ],
         content: `
           <h2>
@@ -81,11 +89,7 @@ export default {
               With regular items
             </li>
           </ul>
-          <blockquote>
-            It's amazing 👏
-            <br />
-            – mom
-          </blockquote>
+          <p>Hello</p>
         `
       })
     };
