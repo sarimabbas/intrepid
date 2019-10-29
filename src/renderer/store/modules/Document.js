@@ -1,10 +1,11 @@
 const state = {
-    s_current_file: ""
+    s_current_file_path: "",
+    s_current_file_contents: ""
 };
 
 const mutations = {
     m_current_file_set(state, payload) {
-        state.s_current_file = payload.current_file;
+        state.s_current_file_path = payload.file_path;
     }
 };
 

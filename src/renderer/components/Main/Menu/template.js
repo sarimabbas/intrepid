@@ -35,6 +35,14 @@ const template = [
                     currentWindow.webContents.send("file-open");
                 }
             },
+            { type: "separator" },
+            {
+                label: "Save",
+                accelerator: process.platform === "darwin" ? "Cmd+S" : "Ctrl+S",
+                click() {
+                    currentWindow.webContents.send("file-save");
+                }
+            },
             isMac ? { role: "close" } : { role: "quit" }
         ]
     },

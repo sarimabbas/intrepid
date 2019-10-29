@@ -1,0 +1,79 @@
+{
+    "type": "doc",
+    "content": [
+        {
+            "type": "heading",
+            "attrs": { "level": 2 },
+            "content": [{ "type": "text", "text": "Hi there," }]
+        },
+        {
+            "type": "paragraph",
+            "content": [
+                { "type": "text", "text": "this is a very " },
+                {
+                    "type": "text",
+                    "marks": [{ "type": "italic" }],
+                    "text": "basic"
+                },
+                { "type": "text", "text": " example of tiptap." }
+            ]
+        },
+        {
+            "type": "code_block",
+            "content": [{ "type": "text", "text": "body { display: none; }" }]
+        },
+        {
+            "type": "bullet_list",
+            "content": [
+                {
+                    "type": "list_item",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                { "type": "text", "text": "A regular list" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list_item",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                { "type": "text", "text": "With regular items" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "code_block",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Also, sometimes it's hard to remember to type `cmd/ctrl \n+ enter` to leave a code block."
+                }
+            ]
+        },
+        { "type": "paragraph" },
+        {
+            "type": "paragraph",
+            "content": [{ "type": "text", "text": "Let us add more channges" }]
+        },
+        { "type": "paragraph" },
+        {
+            "type": "paragraph",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Let's see if we can do any thing different!!!!!"
+                }
+            ]
+        },
+        { "type": "paragraph" },
+        { "type": "paragraph" }
+    ]
+}
