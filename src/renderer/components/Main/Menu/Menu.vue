@@ -30,18 +30,28 @@ export default {
       EditorInstance.setContent(JSON.parse(content));
     },
     saveFile() {
+      let file_path = this.s_current_file_path;
+
       // if path doesn't exist, ask where to save it
-      if (!this.s_current_file_path) {
-        console.log("TODO");
-        return;
+      if (!file_path) {
+        file_path = dialog.showSaveDialogSync({
+          showsTagField: true,
+          defaultPath: "Untitled.crncl"
+        });
+
+        if (!file_path) {
+          return;
+        }
       }
+
+      console.log(file_path);
 
       // flush contents to current path
       const content = EditorInstance.getJSON();
       const json = JSON.stringify(content);
       try {
-        const dir = this.s_current_file_path;
-        fs.writeFileSync(dir + "/content.json", json, "utf-8");
+        jetpack.dir(file_path);
+        fs.writeFileSync(file_path + "/content.json", json, "utf-8");
       } catch (e) {
         console.log(e);
       }
