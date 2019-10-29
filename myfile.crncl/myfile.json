@@ -53,43 +53,13 @@
             "type": "paragraph",
             "content": [{ "type": "text", "text": "Hello" }]
         },
-        { "type": "paragraph" },
         {
             "type": "paragraph",
             "content": [
                 {
                     "type": "image",
                     "attrs": {
-                        "src": "./myfile.crncl/assets/image.png",
-                        "alt": null,
-                        "title": null
-                    }
-                }
-            ]
-        },
-        { "type": "paragraph" },
-        { "type": "paragraph" },
-        {
-            "type": "paragraph",
-            "content": [
-                {
-                    "type": "image",
-                    "attrs": {
-                        "src": "./myfile.crncl/assets/image.png",
-                        "alt": null,
-                        "title": null
-                    }
-                }
-            ]
-        },
-        { "type": "paragraph" },
-        {
-            "type": "paragraph",
-            "content": [
-                {
-                    "type": "image",
-                    "attrs": {
-                        "src": "./myfile.crncl/assets/image.png",
+                        "src": "./myfile.crncl/assets/c4fe3b20-fa64-11e9-9221-ad42c5e75338-image.png",
                         "alt": null,
                         "title": null
                     }

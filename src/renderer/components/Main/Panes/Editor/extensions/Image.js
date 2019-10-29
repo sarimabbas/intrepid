@@ -1,10 +1,13 @@
 import { Node, Plugin } from "tiptap";
 import { nodeInputRule } from "tiptap-commands";
 
+const uuidv1 = require("uuid/v1");
 const remote = require("electron").remote;
 const electronFs = remote.require("fs");
 const jetpack = remote.require("fs-jetpack");
 const electronDialog = remote.dialog;
+
+const saveImage = path => {};
 
 /**
  * Matches following attributes in Markdown-typed image: [, alt, src, title]
@@ -99,37 +102,37 @@ export default class Image extends Node {
 
                             event.preventDefault();
 
+                            const { schema } = view.state;
+
                             const dir = "./myfile.crncl/assets/";
-                            const new_paths = [];
                             images.forEach(image => {
                                 const reader = new FileReader();
+                                const new_path =
+                                    dir + uuidv1() + "-" + image.name;
                                 reader.onload = readerEvent => {
-                                    // jetpack.remove(dir + image.name);
-                                    const buffer = Buffer.from(
-                                        new Uint8Array(
-                                            readerEvent.target.result
-                                        )
-                                    );
-                                    jetpack.appendAsync(
-                                        dir + image.name,
-                                        buffer,
+                                    // save file
+                                    jetpack.append(
+                                        new_path,
+                                        Buffer.from(
+                                            new Uint8Array(
+                                                readerEvent.target.result
+                                            )
+                                        ),
                                         {}
                                     );
+                                    // create node and dispatch
+                                    const node = schema.nodes.image.create({
+                                        src: new_path
+                                    });
+                                    const transaction = view.state.tr.insert(
+                                        view.state.selection.$cursor.pos,
+                                        node
+                                    );
+                                    view.dispatch(transaction);
                                 };
-                                reader.readAsArrayBuffer(image);
-                                new_paths.push(dir + image.name);
-                            });
 
-                            const { schema } = view.state;
-                            new_paths.forEach(path => {
-                                const node = schema.nodes.image.create({
-                                    src: path
-                                });
-                                const transaction = view.state.tr.insert(
-                                    view.state.selection.$cursor.pos,
-                                    node
-                                );
-                                view.dispatch(transaction);
+                                // read image
+                                reader.readAsArrayBuffer(image);
                             });
                         },
 
@@ -163,10 +166,12 @@ export default class Image extends Node {
                             const dir = "./myfile.crncl/assets/";
                             const new_paths = [];
                             images.forEach(image => {
-                                jetpack.copy(image.path, dir + image.name, {
+                                const new_path =
+                                    dir + uuidv1() + "-" + image.name;
+                                jetpack.copy(image.path, new_path, {
                                     overwrite: true
                                 });
-                                new_paths.push(dir + image.name);
+                                new_paths.push(new_path);
                             });
 
                             new_paths.forEach(path => {

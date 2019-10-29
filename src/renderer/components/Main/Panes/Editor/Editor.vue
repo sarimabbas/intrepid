@@ -161,7 +161,7 @@ code {
 
 .toolbar {
   background-color: #222222;
-  padding: 10px;
+  padding: 7px;
   color: white;
 }
 

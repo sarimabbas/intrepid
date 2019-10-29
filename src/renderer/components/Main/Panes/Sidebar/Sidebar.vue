@@ -49,7 +49,7 @@ export default {
 
 .toolbar {
   background-color: #333333;
-  padding: 10px;
+  padding: 7px;
   color: white;
 }
 
