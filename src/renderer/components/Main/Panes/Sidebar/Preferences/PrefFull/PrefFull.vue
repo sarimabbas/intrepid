@@ -16,9 +16,14 @@ export default {
     </header>
     <section class="modal-card-body">
       <b-tabs type="is-boxed">
-        <b-tab-item
-          label="General"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio corporis eius dolorum est sunt nihil! Laborum dicta veniam asperiores laboriosam aperiam, ab doloribus consequuntur ad enim quam debitis eaque similique!</b-tab-item>
+        <b-tab-item label="Appearance">
+          <h1 class="is-size-4">Sidebar</h1>
+          <div>
+            <span>Show outline</span>
+          </div>
+
+          <h1></h1>
+        </b-tab-item>
         <b-tab-item label="Theming"></b-tab-item>
         <b-tab-item label="Markdown"></b-tab-item>
       </b-tabs>

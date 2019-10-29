@@ -27,6 +27,7 @@ export default {
 
 .panes-left {
   width: 25%;
+  min-width: 200px;
   max-width: 250px;
 }
 </style>

@@ -25,7 +25,8 @@ import {
   Link,
   Strike,
   Underline,
-  History
+  History,
+  TrailingNode
 } from "tiptap-extensions";
 
 import Image from "./extensions/Image";
@@ -71,7 +72,10 @@ export default {
           new Strike(),
           new Underline(),
           new History(),
-          new Image()
+          new Image(),
+          new TrailingNode({
+            node: "paragraph"
+          })
         ],
         content: `
           <h2>
@@ -89,7 +93,7 @@ export default {
               With regular items
             </li>
           </ul>
-          <p>Hello</p>
+                    <pre><code>Also, sometimes it's hard to remember to type \`cmd/ctrl + enter\` to leave a code block.</code></pre>
         `
       })
     };
