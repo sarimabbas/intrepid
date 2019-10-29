@@ -1,12 +1,14 @@
 <script>
 import Panes from "./Panes/Panes.vue";
+import Menu from "./Menu/Menu.vue";
 export default {
-  components: { Panes }
+  components: { Panes, Menu }
 };
 </script>
 
 <template>
   <div id="main">
+    <Menu />
     <Panes />
   </div>
 </template>
