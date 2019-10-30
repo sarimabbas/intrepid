@@ -65,6 +65,8 @@ export default {
         if (!file_path) {
           return;
         }
+
+        this.m_current_file_set({ file_path });
       }
 
       // e.g. file_path === .../.../Untitled.crncl
