@@ -47,6 +47,7 @@ export default {
 
       const file_path = file_paths[0];
       this.m_current_file_set({ file_path });
+      currentWindow.setTitle("Intrepid - " + file_path);
 
       // check for a JSON file inside
       const content = jetpack.read(file_path + "/content.json");

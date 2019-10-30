@@ -54,7 +54,6 @@ export default {
         <div class="sidebar">
           <sidebar-icon @click="m_sidebar_toggle" />
         </div>
-        {{s_current_file_path}}
         <share-icon />
       </div>
     </div>
