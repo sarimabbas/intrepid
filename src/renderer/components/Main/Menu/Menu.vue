@@ -3,15 +3,33 @@
 <script>
 import template from "./template";
 import { mapState, mapActions } from "vuex";
-const { remote, ipcRenderer } = require("electron");
-const { Menu, MenuItem, dialog } = remote;
-const fs = remote.require("fs");
-const jetpack = remote.require("fs-jetpack");
+
+import {
+  remote,
+  ipcRenderer,
+  Menu,
+  dialog,
+  fs,
+  jetpack,
+  currentWindow
+} from "../../../common";
 
 import EditorInstance from "../Panes/Editor/EditorInstance";
 
 export default {
   methods: {
+    closeWindow(event) {
+      console.log(event);
+      const choice = dialog.showMessageBoxSync({
+        type: "question",
+        buttons: ["Yes", "No"],
+        title: "Confirm",
+        message: "Are you sure you want to quit?"
+      });
+      console.log("Choice", choice);
+
+      event.preventDefault();
+    },
     openFile() {
       // if some contents are there in a new window, prompt user to save
 
@@ -78,6 +96,10 @@ export default {
 
     ipcRenderer.on("file-save", (event, data) => {
       this.saveFile();
+    });
+
+    ipcRenderer.on("window-close", (event, data) => {
+      this.closeWindow(data);
     });
   }
 };

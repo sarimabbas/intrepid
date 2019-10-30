@@ -34,6 +34,10 @@ function createWindow() {
 
     mainWindow.loadURL(winURL);
 
+    mainWindow.on("close", event => {
+        mainWindow.webContents.send("window-close", event);
+    });
+
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
