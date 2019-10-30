@@ -4,7 +4,9 @@
 
 ![Cover](./docs/cover.png)
 
+## Table of contents
 - [Intrepid](#intrepid)
+  - [Table of contents](#table-of-contents)
   - [Features](#features)
     - [Familiar Markdown syntax](#familiar-markdown-syntax)
     - [Image handling](#image-handling)
