@@ -4,6 +4,13 @@
 
 ![Cover](./docs/cover.png)
 
+- [Intrepid](#intrepid)
+  - [Features](#features)
+    - [Familiar Markdown syntax](#familiar-markdown-syntax)
+    - [Image handling](#image-handling)
+      - [Local images:](#local-images)
+      - [Remote images:](#remote-images)
+
 ## Features
 
 ### Familiar Markdown syntax
