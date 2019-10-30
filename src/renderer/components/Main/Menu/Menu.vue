@@ -69,6 +69,7 @@ export default {
       }
 
       this.m_current_file_set({ file_path });
+      currentWindow.setTitle("Intrepid - " + file_path);
 
       // e.g. file_path === .../.../Untitled.crncl
 
