@@ -18,9 +18,6 @@ export default {
       <div class="logo">
         <h1 class="title">Intrepid</h1>
       </div>
-
-      <br />
-      <br />
       <br />
       <div class="tree">
         <Outline />

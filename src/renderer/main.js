@@ -8,15 +8,10 @@ import store from "./store";
 // user imports
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
-import VueSplit from "vue-split-panel";
-
-import "@fortawesome/fontawesome-free/css/all.css";
-import "@fortawesome/fontawesome-free/css/fontawesome.css";
-
-import "sl-vue-tree/dist/sl-vue-tree-dark.css";
+// import VueSplit from "vue-split-panel";
 
 // use
-Vue.use(VueSplit);
+// Vue.use(VueSplit);
 Vue.use(Buefy, {
   defaultIconPack: "fas"
 });

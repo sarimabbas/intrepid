@@ -24,14 +24,22 @@ const convertTocArrayToTreeHelper = (tocArray, currPosition) => {
       {
         title: start.content[0].text,
         isExpanded: true, // keep all parent nodes expanded by default
-        children: childrenResult
+        children: childrenResult,
+        data: {
+          level: start.attrs.level
+        },
+        isDraggable: false
       }
     ];
   } else {
     return [
       {
         title: start.content[0].text,
-        isLeaf: true
+        isLeaf: true,
+        data: {
+          level: start.attrs.level
+        },
+        isDraggable: false
       }
     ];
   }
