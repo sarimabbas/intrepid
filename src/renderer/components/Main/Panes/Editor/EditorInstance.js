@@ -32,9 +32,13 @@ const EditorInstance = new Editor({
 
     const headings = createOutline();
 
-    store._actions["Document/m_headings_set"][0]({
-      headings: headings
-    });
+    // ostensibly a better way to access store outside of Vue
+    store.dispatch("Document/m_headings_set", { headings: headings });
+
+    // a more hacky way:
+    // store._actions["Document/m_headings_set"][0]({
+    //   headings: headings
+    // });
   },
 
   extensions: [
