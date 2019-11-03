@@ -98,11 +98,6 @@ export default {
   word-break: break-all;
 }
 
-pre,
-code {
-  word-break: break-all;
-}
-
 /* flex bottom */
 .toolbar {
   background-color: #222222;
@@ -124,5 +119,14 @@ code {
 <style>
 [contenteditable]:focus {
   outline: 0px solid transparent;
+}
+
+pre {
+  overflow-x: auto !important;
+  word-break: all;
+}
+code {
+  display: block !important;
+  word-break: all;
 }
 </style>

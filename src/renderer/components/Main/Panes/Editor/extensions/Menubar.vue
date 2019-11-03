@@ -110,9 +110,11 @@ export default {
 <style scoped>
 .is-text {
   color: white !important;
+  text-decoration: none !important;
 }
 
-.is-text:hover {
+.is-text:hover,
+.is-active {
   background-color: rgb(100, 100, 100) !important;
 }
 
