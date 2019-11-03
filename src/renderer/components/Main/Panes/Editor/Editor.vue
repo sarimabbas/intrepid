@@ -84,7 +84,7 @@ export default {
 
 /* flex middle (expand) + settings */
 .pm-custom {
-  padding: 0px 50px;
+  padding: 0px 25px;
   overflow-y: scroll;
   flex: 1 1 auto;
 }
@@ -118,6 +118,19 @@ export default {
 <style>
 [contenteditable]:focus {
   outline: 0px solid transparent;
+}
+
+/* top and bottom "padding" on editor */
+[contenteditable]:after {
+  content: "";
+  height: 20px;
+  display: block;
+}
+
+[contenteditable]:before {
+  content: "";
+  height: 20px;
+  display: block;
 }
 
 /* pre {
