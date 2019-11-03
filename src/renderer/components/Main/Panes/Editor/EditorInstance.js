@@ -13,6 +13,7 @@ import {
   OrderedList,
   BulletList,
   ListItem,
+  Placeholder,
   TodoItem,
   TodoList,
   Bold,
@@ -50,6 +51,11 @@ const EditorInstance = new Editor({
     new HorizontalRule(),
     new ListItem(),
     new OrderedList(),
+    new Placeholder({
+      emptyNodeClass: "is-empty",
+      emptyNodeText: "Write something...",
+      showOnlyWhenEditable: true
+    }),
     new TodoItem(),
     new TodoList(),
     new Link(),
@@ -59,12 +65,11 @@ const EditorInstance = new Editor({
     new Strike(),
     new Underline(),
     new History(),
-    new Image(),
-    new TrailingNode({
-      node: "paragraph"
-    })
-  ],
-  content: ``
+    new Image()
+    // new TrailingNode({
+    //   node: "paragraph"
+    // })
+  ]
 });
 
 export default EditorInstance;

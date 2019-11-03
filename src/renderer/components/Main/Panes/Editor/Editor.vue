@@ -129,4 +129,12 @@ code {
   display: block !important;
   word-break: all;
 }
+
+p.is-empty:first-child::before {
+  content: attr(data-empty-text);
+  float: left;
+  color: lightgray;
+  pointer-events: none;
+  height: 0;
+}
 </style>
