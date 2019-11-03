@@ -40,11 +40,11 @@ export default {
 <template>
   <div class="editor">
     <!-- menu controls -->
-    <!-- <header class="menu-controls">
+    <header class="menu-controls">
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
         <Menubar :commands="commands" :is-active="isActive" />
       </editor-menu-bar>
-    </header>-->
+    </header>
 
     <!-- writing area -->
     <content class="pm-custom">

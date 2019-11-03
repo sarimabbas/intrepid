@@ -1,7 +1,7 @@
 import { Mark, Plugin } from "tiptap";
 import { updateMark, removeMark, pasteRule } from "tiptap-commands";
 import { getMarkAttrs } from "tiptap-utils";
-import { shell } from "../../../../../common";
+import { shell } from "../../../../../../common";
 
 export default class Link extends Mark {
   get name() {

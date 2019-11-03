@@ -2,9 +2,9 @@ import { Node, Plugin } from "tiptap";
 import { nodeInputRule } from "tiptap-commands";
 
 const uuidv1 = require("uuid/v1");
-import { jetpack } from "../../../../../common";
+import { jetpack } from "../../../../../../common";
 
-import store from "../../../../../store";
+import store from "../../../../../../store";
 
 /**
  * Matches following attributes in Markdown-typed image: [, alt, src, title]

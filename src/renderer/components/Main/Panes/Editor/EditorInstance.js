@@ -2,14 +2,15 @@ import { currentWindow } from "../../../../common";
 import store from "../../../../store";
 import { createOutline } from "../Sidebar/Outline/helper";
 import { Editor } from "tiptap";
-import Image from "./extensions/Image";
-import Link from "./extensions/Link";
-import HardBreak from "./extensions/HardBreak";
+
+import Image from "./extensions/nodes/Image";
+import Link from "./extensions/marks/Link";
+import HardBreak from "./extensions/nodes/HardBreak";
+import CodeBlockHighlight from "./extensions/nodes/CodeBlockHighlight";
 import languages from "./extensions/languages";
 
 import {
   Blockquote,
-  CodeBlockHighlight,
   Heading,
   HorizontalRule,
   OrderedList,
