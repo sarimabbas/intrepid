@@ -36,7 +36,8 @@ function createWindow() {
   mainWindow.loadURL(winURL);
 
   mainWindow.on("close", event => {
-    mainWindow.webContents.send("window-close", event);
+    event.preventDefault();
+    mainWindow.webContents.send("window-close");
   });
 
   mainWindow.on("closed", () => {

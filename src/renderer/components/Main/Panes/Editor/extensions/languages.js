@@ -1,7 +1,11 @@
 import javascript from "highlight.js/lib/languages/javascript";
 import css from "highlight.js/lib/languages/css";
+import python from "highlight.js/lib/languages/python";
 
-export default {
+const languages = {
   javascript,
-  css
+  css,
+  python
 };
+
+export default languages;

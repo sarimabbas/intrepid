@@ -5,11 +5,10 @@ import { Editor } from "tiptap";
 import Image from "./extensions/Image";
 import Link from "./extensions/Link";
 import HardBreak from "./extensions/HardBreak";
-// import languages from "./extensions/languages";
-import css from "highlight.js/lib/languages/css";
+import languages from "./extensions/languages";
+
 import {
   Blockquote,
-  CodeBlock,
   CodeBlockHighlight,
   Heading,
   HorizontalRule,
@@ -32,27 +31,19 @@ const EditorInstance = new Editor({
   onUpdate() {
     if (!currentWindow.isDocumentEdited()) {
       currentWindow.setDocumentEdited(true);
+      store.dispatch("Document/m_pending_save_set", { needs_save: true });
     }
 
-    const headings = createOutline();
-
     // ostensibly a better way to access store outside of Vue
+    const headings = createOutline();
     store.dispatch("Document/m_headings_set", { headings: headings });
-
-    // a more hacky way:
-    // store._actions["Document/m_headings_set"][0]({
-    //   headings: headings
-    // });
   },
 
   extensions: [
     new Blockquote(),
     new BulletList(),
-    new CodeBlock(),
     new CodeBlockHighlight({
-      languages: {
-        css
-      }
+      languages: languages
     }),
     new HardBreak(),
     new Heading({ levels: [1, 2, 3, 4, 5, 6] }),

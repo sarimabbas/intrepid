@@ -18,17 +18,27 @@ import EditorInstance from "../Panes/Editor/EditorInstance";
 
 export default {
   methods: {
-    closeWindow(event) {
-      console.log(event);
-      const choice = dialog.showMessageBoxSync({
-        type: "question",
-        buttons: ["Yes", "No"],
-        title: "Confirm",
-        message: "Are you sure you want to quit?"
-      });
-      console.log("Choice", choice);
+    closeWindow() {
+      // if some unsaved changes, prompt to save
+      if (this.s_pending_save) {
+        const choice = dialog.showMessageBoxSync({
+          type: "question",
+          buttons: ["Save", "Cancel", "Don't Save"],
+          title: "Confirm",
+          message: "Do you want to save the changes you've made?",
+          detail: "Your changes will be lost if you do not save them."
+        });
 
-      event.preventDefault();
+        if (choice == 0) {
+          this.saveFile();
+        } else if (choice == 2) {
+          currentWindow.destroy();
+        }
+
+        // if no unsaved changes, destroy window
+      } else {
+        currentWindow.destroy();
+      }
     },
     openFile() {
       // if some contents are there in a new window, prompt user to save
@@ -84,11 +94,12 @@ export default {
       }
 
       currentWindow.setDocumentEdited(false);
+      this.m_pending_save_set({ needs_save: false });
     },
-    ...mapActions("Document", ["m_current_file_set"])
+    ...mapActions("Document", ["m_current_file_set", "m_pending_save_set"])
   },
   computed: {
-    ...mapState("Document", ["s_current_file_path"])
+    ...mapState("Document", ["s_current_file_path", "s_pending_save"])
   },
   created() {
     // create menu
@@ -105,7 +116,7 @@ export default {
     });
 
     ipcRenderer.on("window-close", (event, data) => {
-      this.closeWindow(data);
+      this.closeWindow();
     });
   }
 };
