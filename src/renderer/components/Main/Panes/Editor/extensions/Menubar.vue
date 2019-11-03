@@ -27,16 +27,16 @@ export default {
     <!-- left controls -->
     <div>
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
-        :class="{ 'is-active': isActive.bold() }"
+        :class="{ 'is-active': isActive.bold(), 'menu-button': true }"
         @click="commands.bold"
       >
         <bold-icon size="1.5x" />
       </b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.italic() }"
         @click="commands.italic"
@@ -45,7 +45,7 @@ export default {
       </b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.underline() }"
         @click="commands.underline"
@@ -54,28 +54,28 @@ export default {
       </b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.heading({ level: 1 }) }"
         @click="commands.heading({ level: 1 })"
       >H1</b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.heading({ level: 2 }) }"
         @click="commands.heading({ level: 2 })"
       >H2</b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.heading({ level: 3 }) }"
         @click="commands.heading({ level: 3 })"
       >H3</b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.bullet_list() }"
         @click="commands.bullet_list"
@@ -84,7 +84,7 @@ export default {
       </b-button>
 
       <b-button
-        type="is-light"
+        type="is-text"
         size="is-small"
         :class="{ 'is-active': isActive.code_block() }"
         @click="commands.code_block"
@@ -95,11 +95,11 @@ export default {
 
     <!-- right conntrols -->
     <div>
-      <b-button size="is-small" type="is-light" @click="commands.undo">
+      <b-button size="is-small" type="is-text" @click="commands.undo">
         <rotate-ccw-icon size="1.5x" />
       </b-button>
 
-      <b-button size="is-small" type="is-light" @click="commands.redo">
+      <b-button size="is-small" type="is-text" @click="commands.redo">
         <rotate-cw-icon size="1.5x" />
       </b-button>
     </div>
@@ -108,6 +108,14 @@ export default {
 
 
 <style scoped>
+.is-text {
+  color: white !important;
+}
+
+.is-text:hover {
+  background-color: rgb(100, 100, 100) !important;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;
