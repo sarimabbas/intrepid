@@ -3,6 +3,7 @@ import store from "../../../../store";
 import { createOutline } from "../Sidebar/Outline/helper";
 import { Editor } from "tiptap";
 import Image from "./extensions/Image";
+import Link from "./extensions/Link";
 import {
   Blockquote,
   CodeBlock,
@@ -17,7 +18,6 @@ import {
   Bold,
   Code,
   Italic,
-  Link,
   Strike,
   Underline,
   History,
