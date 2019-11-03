@@ -2,7 +2,7 @@
 import { mapState, mapActions } from "vuex";
 import { EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
-import Menubar from "./extensions/Menubar";
+import Menubar from "./Menubar/Menubar.vue";
 import EditorInstance from "./EditorInstance";
 
 export default {
