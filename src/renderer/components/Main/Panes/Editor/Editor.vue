@@ -1,11 +1,8 @@
 <script>
-const remote = require("electron").remote;
-const electronFs = remote.require("fs");
-const electronDialog = remote.dialog;
-
+import { mapState, mapActions } from "vuex";
 import { EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
-import { mapState, mapActions } from "vuex";
+import Menubar from "./extensions/Menubar";
 
 import EditorInstance from "./EditorInstance";
 
@@ -14,7 +11,8 @@ export default {
     EditorContent,
     EditorMenuBar,
     SidebarIcon,
-    ShareIcon
+    ShareIcon,
+    Menubar
   },
   data() {
     return {
@@ -42,46 +40,62 @@ export default {
 
 <template>
   <div class="editor">
-    <!-- content -->
-    <div class="pm-custom">
-      <div class="content">
-        <editor-content :editor="editor" />
-      </div>
-    </div>
+    <!-- menu controls -->
+    <header class="menu-controls">
+      <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+        <Menubar :commands="commands" :is-active="isActive" />
+      </editor-menu-bar>
+    </header>
+
+    <!-- writing area -->
+    <content class="pm-custom">
+      <editor-content :editor="editor" class="content" />
+    </content>
+
     <!-- bottom preferences -->
-    <div class="toolbar">
+    <footer class="toolbar">
       <div class="toolbar-buttons">
         <div class="sidebar">
           <sidebar-icon @click="m_sidebar_toggle" />
         </div>
         <share-icon />
       </div>
-    </div>
+    </footer>
+
+    <!-- end -->
   </div>
 </template>
 
 
 <style scoped>
-.content {
-  word-break: break-all;
-}
-
-.sidebar {
-  cursor: pointer;
-}
-
+/* flex base */
 .editor {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background-color: white;
 }
 
+/* flex top */
+.menu-controls {
+  padding: 5px;
+  background-color: #222222;
+}
+
+/* flex middle (expand) + settings */
 .pm-custom {
-  padding: 50px 50px;
+  padding: 0px 50px;
   overflow-y: scroll;
+  flex: 1 1 auto;
+}
+
+.pm-custom > div:first-child {
+  height: 100%;
+}
+
+.content {
+  word-break: break-all;
 }
 
 pre,
@@ -89,14 +103,15 @@ code {
   word-break: break-all;
 }
 
-.pm-custom > div:first-child {
-  height: 100%;
-}
-
+/* flex bottom */
 .toolbar {
   background-color: #222222;
   padding: 7px;
   color: white;
+}
+
+.sidebar {
+  cursor: pointer;
 }
 
 .toolbar-buttons {
