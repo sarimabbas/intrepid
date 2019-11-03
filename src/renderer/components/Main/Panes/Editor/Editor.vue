@@ -121,6 +121,9 @@ export default {
 }
 
 /* top and bottom "padding" on editor */
+/* https://stackoverflow.com/questions/13471910/
+css-applying-padding-to-box-with-scroll-bottom-padding-doesnt-work
+*/
 [contenteditable]:after {
   content: "";
   height: 20px;
