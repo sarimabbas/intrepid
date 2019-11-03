@@ -19,6 +19,7 @@ export default {
 }
 
 .is-text:hover,
+.is-text:focus,
 .is-active {
   background-color: rgb(100, 100, 100) !important;
 }

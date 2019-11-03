@@ -1,12 +1,14 @@
 
 <script>
 import { MoreHorizontalIcon, SettingsIcon } from "vue-feather-icons";
+import IconButton from "../../../../IconButton/IconButton";
 import PrefFull from "../PrefFull/PrefFull.vue";
 export default {
   components: {
     MoreHorizontalIcon,
     SettingsIcon,
-    PrefFull
+    PrefFull,
+    IconButton
   },
   data() {
     return {
@@ -31,7 +33,9 @@ export default {
   <!-- start menu -->
   <b-dropdown position="is-top-right" :mobile-modal="false" aria-role="menu">
     <div slot="trigger" class="more">
-      <more-horizontal-icon />
+      <IconButton>
+        <more-horizontal-icon size="1.5x" />
+      </IconButton>
     </div>
     <b-dropdown-item aria-role="menu-item">Action</b-dropdown-item>
     <b-dropdown-item aria-role="menu-item">Another action</b-dropdown-item>

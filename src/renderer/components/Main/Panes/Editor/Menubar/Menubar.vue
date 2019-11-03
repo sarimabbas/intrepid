@@ -68,7 +68,7 @@ export default {
       >H3</IconButton>
     </div>
 
-    <!-- right conntrols -->
+    <!-- right controls -->
     <div>
       <IconButton @click.native="commands.undo">
         <rotate-ccw-icon size="1.5x" />

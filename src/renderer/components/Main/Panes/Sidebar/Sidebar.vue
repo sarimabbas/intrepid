@@ -1,12 +1,14 @@
 <script>
 import { SearchIcon } from "vue-feather-icons";
 import PrefBasic from "./Preferences/PrefBasic/PrefBasic.vue";
+import IconButton from "../../IconButton/IconButton";
 import Outline from "./Outline/Outline";
 export default {
   components: {
     SearchIcon,
     PrefBasic,
-    Outline
+    Outline,
+    IconButton
   }
 };
 </script>
@@ -29,7 +31,9 @@ export default {
     <div class="toolbar">
       <div class="toolbar-buttons">
         <PrefBasic />
-        <search-icon />
+        <IconButton>
+          <search-icon size="1.5x" />
+        </IconButton>
       </div>
     </div>
     <!-- finish bottom -->
