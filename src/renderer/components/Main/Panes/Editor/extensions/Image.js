@@ -16,6 +16,12 @@ import store from "../../../../../store";
  */
 const IMAGE_INPUT_REGEX = /!\[(.+|:?)\]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/;
 
+/**
+ * When the image node is retrieved from file, the URL cannot be resolved
+ * directly. file:// protocol must be used, but it cannot work with relative links
+ * So this converts it using the current file path to a full image file:// link
+ * @param {*} node
+ */
 const createSrcLinkToImage = node => {
   const s_current_file_path = store.state.Document.s_current_file_path;
   const curr_src = node.attrs.src;
@@ -66,6 +72,8 @@ const saveImages = (view, event, eventType) => {
     // listener for when the file is loaded
     reader.onload = readerEvent => {
       let node = null;
+
+      // copy the image file to directory e.g. drag and drop
       if (s_current_file_path) {
         // create path to file
         const image_name = uuidv1() + "-" + image.name;
@@ -81,8 +89,9 @@ const saveImages = (view, event, eventType) => {
         node = schema.nodes.image.create({
           src: relative_path
         });
+
+        // embed file e.g. on paste from clipboard
       } else {
-        // embed file
         const embedData = readerEvent.target.result;
         // create node
         node = schema.nodes.image.create({
@@ -91,10 +100,13 @@ const saveImages = (view, event, eventType) => {
       }
 
       // dispatch transaction
-      const transaction = view.state.tr.insert(
-        view.state.selection.$cursor.pos,
-        node
-      );
+      // const transaction = view.state.tr.insert(
+      //   view.state.selection.$cursor.pos,
+      //   node
+      // );
+
+      // alternative code provided by tiptap folks
+      const transaction = view.state.tr.replaceSelectionWith(node);
       view.dispatch(transaction);
     };
 
