@@ -2,6 +2,7 @@
 import { mapState, mapActions } from "vuex";
 import { EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
+import IconButton from "../../IconButton/IconButton";
 import Menubar from "./Menubar/Menubar.vue";
 import EditorInstance from "./EditorInstance";
 
@@ -11,7 +12,8 @@ export default {
     EditorMenuBar,
     SidebarIcon,
     ShareIcon,
-    Menubar
+    Menubar,
+    IconButton
   },
   data() {
     return {
@@ -54,10 +56,12 @@ export default {
     <!-- bottom preferences -->
     <footer class="toolbar">
       <div class="toolbar-buttons">
-        <div class="sidebar">
-          <sidebar-icon @click="m_sidebar_toggle" />
-        </div>
-        <share-icon />
+        <IconButton @click.native="m_sidebar_toggle">
+          <sidebar-icon size="1.5x" />
+        </IconButton>
+        <IconButton>
+          <share-icon size="1.5x" />
+        </IconButton>
       </div>
     </footer>
 

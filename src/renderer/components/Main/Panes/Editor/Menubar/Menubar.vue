@@ -30,23 +30,23 @@ export default {
   <div class="controls">
     <!-- left controls -->
     <div>
-      <IconButton :is-active="isActive.bold()" :click="commands.bold">
+      <IconButton :is-active="isActive.bold()" @click.native="commands.bold">
         <bold-icon size="1.5x" />
       </IconButton>
 
-      <IconButton :is-active="isActive.italic()" :click="commands.italic">
+      <IconButton :is-active="isActive.italic()" @click.native="commands.italic">
         <italic-icon size="1.5x" />
       </IconButton>
 
-      <IconButton :is-active="isActive.underline()" :click="commands.underline">
+      <IconButton :is-active="isActive.underline()" @click.native="commands.underline">
         <underline-icon size="1.5x" />
       </IconButton>
 
-      <IconButton :is-active="isActive.bullet_list()" :click="commands.bullet_list">
+      <IconButton :is-active="isActive.bullet_list()" @click.native="commands.bullet_list">
         <list-icon size="1.5x" />
       </IconButton>
 
-      <IconButton :is-active="isActive.code_block()" :click="commands.code_block">
+      <IconButton :is-active="isActive.code_block()" @click.native="commands.code_block">
         <code-icon size="1.5x" />
       </IconButton>
 
@@ -54,27 +54,27 @@ export default {
       function signature, otherwise you will get an infinite render loop-->
       <IconButton
         :is-active="isActive.heading({ level: 1 })"
-        :click="() => commands.heading({ level: 1 })"
+        @click.native="() => commands.heading({ level: 1 })"
       >H1</IconButton>
 
       <IconButton
         :is-active="isActive.heading({ level: 2 })"
-        :click="() => commands.heading({ level: 2 })"
+        @click.native="() => commands.heading({ level: 2 })"
       >H2</IconButton>
 
       <IconButton
         :is-active="isActive.heading({ level: 3 })"
-        :click="() => commands.heading({ level: 3 })"
+        @click.native="() => commands.heading({ level: 3 })"
       >H3</IconButton>
     </div>
 
     <!-- right conntrols -->
     <div>
-      <IconButton :click="commands.undo">
+      <IconButton @click.native="commands.undo">
         <rotate-ccw-icon size="1.5x" />
       </IconButton>
 
-      <IconButton :click="commands.redo">
+      <IconButton @click.native="commands.redo">
         <rotate-cw-icon size="1.5x" />
       </IconButton>
     </div>
