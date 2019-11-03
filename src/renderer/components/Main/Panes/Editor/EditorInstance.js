@@ -4,10 +4,13 @@ import { createOutline } from "../Sidebar/Outline/helper";
 import { Editor } from "tiptap";
 import Image from "./extensions/Image";
 import Link from "./extensions/Link";
+import HardBreak from "./extensions/HardBreak";
+// import languages from "./extensions/languages";
+import css from "highlight.js/lib/languages/css";
 import {
   Blockquote,
   CodeBlock,
-  HardBreak,
+  CodeBlockHighlight,
   Heading,
   HorizontalRule,
   OrderedList,
@@ -46,6 +49,11 @@ const EditorInstance = new Editor({
     new Blockquote(),
     new BulletList(),
     new CodeBlock(),
+    new CodeBlockHighlight({
+      languages: {
+        css
+      }
+    }),
     new HardBreak(),
     new Heading({ levels: [1, 2, 3, 4, 5, 6] }),
     new HorizontalRule(),
@@ -65,10 +73,10 @@ const EditorInstance = new Editor({
     new Strike(),
     new Underline(),
     new History(),
-    new Image()
-    // new TrailingNode({
-    //   node: "paragraph"
-    // })
+    new Image(),
+    new TrailingNode({
+      node: "paragraph"
+    })
   ]
 });
 

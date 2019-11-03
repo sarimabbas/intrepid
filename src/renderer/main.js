@@ -8,6 +8,7 @@ import store from "./store";
 // user imports
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
+import "highlight.js/styles/dracula.css";
 // import VueSplit from "vue-split-panel";
 
 // use

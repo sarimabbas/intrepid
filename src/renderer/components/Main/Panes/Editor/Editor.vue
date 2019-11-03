@@ -3,7 +3,6 @@ import { mapState, mapActions } from "vuex";
 import { EditorContent, EditorMenuBar } from "tiptap";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
 import Menubar from "./extensions/Menubar";
-
 import EditorInstance from "./EditorInstance";
 
 export default {
@@ -41,11 +40,11 @@ export default {
 <template>
   <div class="editor">
     <!-- menu controls -->
-    <header class="menu-controls">
+    <!-- <header class="menu-controls">
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
         <Menubar :commands="commands" :is-active="isActive" />
       </editor-menu-bar>
-    </header>
+    </header>-->
 
     <!-- writing area -->
     <content class="pm-custom">
@@ -121,14 +120,10 @@ export default {
   outline: 0px solid transparent;
 }
 
-pre {
+/* pre {
   overflow-x: auto !important;
   word-break: all;
-}
-code {
-  display: block !important;
-  word-break: all;
-}
+} */
 
 p.is-empty:first-child::before {
   content: attr(data-empty-text);
@@ -136,5 +131,12 @@ p.is-empty:first-child::before {
   color: lightgray;
   pointer-events: none;
   height: 0;
+}
+
+pre,
+pre code {
+  background-color: #282a36 !important;
+  color: #f8f8f2 !important;
+  border-radius: 5px;
 }
 </style>

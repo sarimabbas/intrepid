@@ -55,6 +55,7 @@
     "buefy": "^0.8.6",
     "electron-log": "^3.0.8",
     "fs-jetpack": "^2.2.3",
+    "highlight.js": "^9.16.2",
     "lodash.merge": "^4.6.2",
     "sl-vue-tree": "^1.8.4",
     "tiptap": "^1.26.4",
