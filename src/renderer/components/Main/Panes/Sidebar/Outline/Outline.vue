@@ -21,7 +21,13 @@ export default {
     ChevronRightIcon,
     ChevronDownIcon
   },
-  methods: {},
+  methods: {
+    nodeClicked(node, event) {
+      document.getElementById(node.data.id).scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  },
   computed: {
     ...mapState("Document", ["s_headings"])
   }
@@ -31,7 +37,7 @@ export default {
 <template>
   <div>
     <h1 class="heading-level">OUTLINE</h1>
-    <sl-vue-tree v-model="s_headings">
+    <sl-vue-tree v-model="s_headings" @nodeclick="nodeClicked">
       <!-- icon -->
       <template slot="title" slot-scope="{ node }">
         <span class="heading-level">H{{ node.data.level }}</span>

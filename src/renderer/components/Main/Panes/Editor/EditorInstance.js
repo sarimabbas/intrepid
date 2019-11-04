@@ -7,11 +7,11 @@ import Image from "./extensions/nodes/Image";
 import Link from "./extensions/marks/Link";
 import HardBreak from "./extensions/nodes/HardBreak";
 import CodeBlockHighlight from "./extensions/nodes/CodeBlockHighlight";
+import Heading from "./extensions/nodes/Heading";
 import languages from "./extensions/languages";
 
 import {
   Blockquote,
-  Heading,
   HorizontalRule,
   OrderedList,
   BulletList,

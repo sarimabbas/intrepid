@@ -13,6 +13,7 @@
     - [Image handling](#image-handling)
       - [Local images](#local-images)
       - [Remote images](#remote-images)
+  - [Reading list](#reading-list)
 
 ## Goals
 
@@ -37,3 +38,6 @@ One of the core principles behind Intrepid is that your data must be portable. F
 
 Use the Markdown image syntax. All these links will remain unchanged. 
 
+## Reading list
+
+- https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21

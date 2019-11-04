@@ -26,7 +26,8 @@ const convertTocArrayToTreeHelper = (tocArray, currPosition) => {
         isExpanded: true, // keep all parent nodes expanded by default
         children: childrenResult,
         data: {
-          level: start.attrs.level
+          level: start.attrs.level,
+          id: start.attrs.id
         },
         isDraggable: false
       }
@@ -37,7 +38,8 @@ const convertTocArrayToTreeHelper = (tocArray, currPosition) => {
         title: start.content[0].text,
         isLeaf: true,
         data: {
-          level: start.attrs.level
+          level: start.attrs.level,
+          id: start.attrs.id
         },
         isDraggable: false
       }
@@ -63,6 +65,7 @@ export const convertTocArrayToTree = tocArray => {
 
 export const getCurrentTocArray = () => {
   const data = EditorInstance.getJSON();
+  console.log(data);
   return data.content.filter(
     block => block.content && block.type === "heading"
   );
