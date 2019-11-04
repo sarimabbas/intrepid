@@ -3,7 +3,8 @@ import { Node } from "tiptap";
 import {
   setBlockType,
   textblockTypeInputRule,
-  toggleBlockType
+  toggleBlockType,
+  pasteRule
 } from "tiptap-commands";
 
 export default class Heading extends Node {
@@ -70,4 +71,13 @@ export default class Heading extends Node {
       }))
     );
   }
+
+  // TODO
+  // pasteRules({ type }) {
+  //   return this.options.levels.map(level =>
+  //     pasteRule(type, () => ({
+  //       level
+  //     }))
+  //   );
+  // }
 }
