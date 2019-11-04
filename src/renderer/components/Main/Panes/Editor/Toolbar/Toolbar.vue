@@ -9,7 +9,9 @@ export default {
     ShareIcon
   },
   computed: {
-    ...mapState("Interface", ["s_sidebar_toggle"]),
+    ...mapState("Interface", ["s_sidebar_toggle"])
+  },
+  methods: {
     ...mapActions("Interface", ["m_sidebar_toggle"])
   }
 };
