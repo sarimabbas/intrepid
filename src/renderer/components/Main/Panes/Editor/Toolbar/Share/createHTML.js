@@ -1,5 +1,6 @@
 import EditorInstance from "../../EditorInstance";
 import { jetpack, mime } from "../../../../../../common";
+import store from "../../../../../../store";
 
 // TODO
 // ! DANGER
@@ -26,7 +27,9 @@ const createHTML = () => {
   let contents = EditorInstance.getHTML();
 
   // go through all the the image tags and embed them into the document
-  contents = embedAssets(contents);
+  if (store.state.Preferences.s_embed_assets) {
+    contents = embedAssets(contents);
+  }
 
   return `
     <!DOCTYPE html>
