@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "intrepid",
+    "productName": "Intrepid",
     "appId": "com.sarimabbas.intrepid",
     "directories": {
       "output": "build"
