@@ -1,12 +1,13 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import IconButton from "../../../IconButton/IconButton";
-import { SidebarIcon, ShareIcon } from "vue-feather-icons";
+import { SidebarIcon } from "vue-feather-icons";
+import Share from "./Share/Share";
 export default {
   components: {
     IconButton,
     SidebarIcon,
-    ShareIcon
+    Share
   },
   computed: {
     ...mapState("Interface", ["s_sidebar_toggle"])
@@ -22,10 +23,8 @@ export default {
     <div class="toolbar-buttons">
       <IconButton @click.native="m_sidebar_toggle" :is-active="s_sidebar_toggle">
         <sidebar-icon size="1.5x" />
-      </IconButton>
-      <IconButton>
-        <share-icon size="1.5x" />
-      </IconButton>
+      </IconButton>hello
+      <Share />
     </div>
   </footer>
 </template>
