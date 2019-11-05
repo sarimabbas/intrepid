@@ -49,8 +49,12 @@ export default {
       </IconButton>
     </div>
 
-    <b-dropdown-item aria-role="listitem" @click="exportHTML">HTML</b-dropdown-item>
-    <b-dropdown-item aria-role="listitem" @click="exportMarkdown">Markdown</b-dropdown-item>
+    <div class="dropdown-item">
+      <strong>Sharing</strong>
+    </div>
+    <hr class="dropdown-divider" />
+    <b-dropdown-item @click="exportHTML">HTML</b-dropdown-item>
+    <b-dropdown-item @click="exportMarkdown">Markdown</b-dropdown-item>
   </b-dropdown>
 </template>
 

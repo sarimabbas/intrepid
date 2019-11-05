@@ -37,13 +37,23 @@ export default {
         <more-horizontal-icon size="1.5x" />
       </IconButton>
     </div>
-    <b-dropdown-item aria-role="menu-item">Action</b-dropdown-item>
-    <b-dropdown-item aria-role="menu-item">Another action</b-dropdown-item>
+
+    <div class="dropdown-item">
+      <strong>Preferences</strong>
+    </div>
+    <hr class="dropdown-divider" />
+
+    <!-- <b-dropdown-item>Action</b-dropdown-item>
+    <b-dropdown-item>Another action</b-dropdown-item>
+    <hr class="dropdown-divider" />-->
 
     <!-- Settings modal -->
-    <b-dropdown-item aria-role="menu-item" @click="showPrefFull()">
-      <settings-icon />Preferences
-    </b-dropdown-item>
+    <a class="dropdown-item" @click="showPrefFull()">
+      <div class="icon-text">
+        <span>View all preferences</span>
+        <settings-icon size="1.5x" />
+      </div>
+    </a>
 
     <!-- end menu -->
   </b-dropdown>
@@ -53,5 +63,21 @@ export default {
 <style scoped>
 .more {
   cursor: pointer;
+}
+
+.icon-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.full-pref-text {
+  margin-left: 5px;
+}
+
+/* Bulma over-rides  */
+.dropdown-item {
+  padding: 6px 16px;
 }
 </style>

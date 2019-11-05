@@ -6,9 +6,9 @@ export default {
 </script>
 
 <template>
-  <b-button type="is-text" size="is-small" :class="{ 'is-active': isActive }">
+  <button :class="{ 'button' : true, 'is-active': isActive, 'is-text' : true, 'is-small' : true, }">
     <slot />
-  </b-button>
+  </button>
 </template>
 
 
