@@ -56,7 +56,7 @@ export default {
       }
 
       const file_path = file_paths[0];
-      this.m_current_file_set({ file_path });
+      this.m_current_file_path({ file_path });
       currentWindow.setTitle("Intrepid - " + file_path);
 
       // check for a JSON file inside
@@ -78,7 +78,7 @@ export default {
         }
       }
 
-      this.m_current_file_set({ file_path });
+      this.m_current_file_path({ file_path });
       currentWindow.setTitle("Intrepid - " + file_path);
 
       // e.g. file_path === .../.../Untitled.crncl
@@ -96,7 +96,7 @@ export default {
       currentWindow.setDocumentEdited(false);
       this.m_pending_save_set({ needs_save: false });
     },
-    ...mapActions("Document", ["m_current_file_set", "m_pending_save_set"])
+    ...mapActions("Document", ["m_current_file_path", "m_pending_save_set"])
   },
   computed: {
     ...mapState("Document", ["s_current_file_path", "s_pending_save"])

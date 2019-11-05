@@ -6,7 +6,7 @@ const state = {
 };
 
 const mutations = {
-  m_current_file_set(state, payload) {
+  m_current_file_path(state, payload) {
     state.s_current_file_path = payload.file_path;
   },
 
@@ -20,8 +20,8 @@ const mutations = {
 };
 
 const actions = {
-  m_current_file_set({ commit }, payload) {
-    commit("m_current_file_set", payload);
+  m_current_file_path({ commit }, payload) {
+    commit("m_current_file_path", payload);
   },
 
   m_pending_save_set({ commit }, payload) {
