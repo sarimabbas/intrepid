@@ -49,7 +49,6 @@ export default {
 
     <b-dropdown-item aria-role="listitem" @click="exportHTML">HTML</b-dropdown-item>
     <b-dropdown-item aria-role="listitem" @click="exportMarkdown">Markdown</b-dropdown-item>
-    <b-dropdown-item aria-role="listitem" @click="exportPDF">PDF</b-dropdown-item>
   </b-dropdown>
 </template>
 
