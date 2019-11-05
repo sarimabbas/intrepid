@@ -40,7 +40,7 @@ const EditorInstance = new Editor({
     const headings = createOutline();
     store.dispatch("Document/m_headings", { headings: headings });
   },
-
+  autoFocus: true,
   extensions: [
     new Blockquote(),
     new BulletList(),

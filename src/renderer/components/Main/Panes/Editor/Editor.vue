@@ -1,7 +1,8 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import { EditorContent, EditorMenuBar } from "tiptap";
-import Menubar from "./Menubar/Menubar.vue";
+import Menubar from "./Menubar/Menubar";
+import FindReplace from "./FindReplace/FindReplace";
 import Toolbar from "./Toolbar/Toolbar";
 import EditorInstance from "./EditorInstance";
 
@@ -10,6 +11,7 @@ export default {
     EditorContent,
     EditorMenuBar,
     Menubar,
+    FindReplace,
     Toolbar
   },
   data() {
@@ -32,7 +34,10 @@ export default {
     <!-- menu controls -->
     <header class="menu-controls">
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
-        <Menubar :commands="commands" :is-active="isActive" />
+        <div>
+          <Menubar :commands="commands" :is-active="isActive" />
+          <FindReplace :commands="commands" />
+        </div>
       </editor-menu-bar>
     </header>
 
