@@ -29,11 +29,11 @@ export default {
         codeBlockStyle: "fenced"
       });
       const markdown = turndown.turndown(html);
-      console.log(markdown);
+      this.saveFile(markdown, "Untitled.md");
     },
     exportHTML() {
-      const contents = createHTML();
-      this.saveFile(contents, "Untitled.html");
+      const html = createHTML();
+      this.saveFile(html, "Untitled.html");
     }
   }
 };
@@ -49,7 +49,7 @@ export default {
 
     <b-dropdown-item aria-role="listitem" @click="exportHTML">HTML</b-dropdown-item>
     <b-dropdown-item aria-role="listitem" @click="exportMarkdown">Markdown</b-dropdown-item>
-    <b-dropdown-item aria-role="listitem">PDF</b-dropdown-item>
+    <b-dropdown-item aria-role="listitem" @click="exportPDF">PDF</b-dropdown-item>
   </b-dropdown>
 </template>
 
