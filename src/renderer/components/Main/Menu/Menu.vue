@@ -94,9 +94,9 @@ export default {
       }
 
       currentWindow.setDocumentEdited(false);
-      this.m_pending_save_set({ needs_save: false });
+      this.m_pending_save({ needs_save: false });
     },
-    ...mapActions("Document", ["m_current_file_path", "m_pending_save_set"])
+    ...mapActions("Document", ["m_current_file_path", "m_pending_save"])
   },
   computed: {
     ...mapState("Document", ["s_current_file_path", "s_pending_save"])

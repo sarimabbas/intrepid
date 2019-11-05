@@ -1,6 +1,5 @@
 const state = {
   s_current_file_path: "",
-  s_current_file_contents: "",
   s_pending_save: false,
   s_headings: []
 };
@@ -10,11 +9,11 @@ const mutations = {
     state.s_current_file_path = payload.file_path;
   },
 
-  m_pending_save_set(state, payload) {
+  m_pending_save(state, payload) {
     state.s_pending_save = payload.needs_save;
   },
 
-  m_headings_set(state, payload) {
+  m_headings(state, payload) {
     state.s_headings = payload.headings;
   }
 };
@@ -24,12 +23,12 @@ const actions = {
     commit("m_current_file_path", payload);
   },
 
-  m_pending_save_set({ commit }, payload) {
-    commit("m_pending_save_set", payload);
+  m_pending_save({ commit }, payload) {
+    commit("m_pending_save", payload);
   },
 
-  m_headings_set({ commit }, payload) {
-    commit("m_headings_set", payload);
+  m_headings({ commit }, payload) {
+    commit("m_headings", payload);
   }
 };
 

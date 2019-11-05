@@ -32,12 +32,12 @@ const EditorInstance = new Editor({
   onUpdate() {
     if (!currentWindow.isDocumentEdited()) {
       currentWindow.setDocumentEdited(true);
-      store.dispatch("Document/m_pending_save_set", { needs_save: true });
+      store.dispatch("Document/m_pending_save", { needs_save: true });
     }
 
     // ostensibly a better way to access store outside of Vue
     const headings = createOutline();
-    store.dispatch("Document/m_headings_set", { headings: headings });
+    store.dispatch("Document/m_headings", { headings: headings });
   },
 
   extensions: [
