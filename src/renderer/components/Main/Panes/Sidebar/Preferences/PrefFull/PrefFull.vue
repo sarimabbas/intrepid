@@ -7,10 +7,10 @@ export default {
     XIcon
   },
   methods: {
-    ...mapActions("Preferences", ["m_embed_assets"])
+    ...mapActions("Preferences", ["m_embed_assets", "m_focus_cursor"])
   },
   computed: {
-    ...mapState("Preferences", ["s_embed_assets"])
+    ...mapState("Preferences", ["s_embed_assets", "s_focus_cursor"])
   }
 };
 </script>
@@ -23,6 +23,17 @@ export default {
     </header>
     <section class="modal-card-body">
       <b-tabs type="is-boxed" position="is-centered">
+        <b-tab-item label="Editor">
+          <div class="control">
+            <div>
+              <p>Focus selection</p>
+              <p
+                class="has-text-grey is-size-7"
+              >A blue outline will appear around cursor selection (requires restart).</p>
+            </div>
+            <b-switch :value="s_focus_cursor" v-on:input="m_focus_cursor" type="is-info"></b-switch>
+          </div>
+        </b-tab-item>
         <b-tab-item label="Sharing">
           <div class="control">
             <div>
@@ -44,7 +55,7 @@ export default {
 <style scoped>
 .modal-card {
   min-width: 60vw;
-  min-height: 30vw;
+  min-height: 40vw;
 }
 
 .modal-card-foot {
@@ -55,5 +66,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 </style>

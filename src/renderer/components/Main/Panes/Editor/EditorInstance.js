@@ -25,7 +25,8 @@ import {
   Strike,
   Underline,
   History,
-  TrailingNode
+  TrailingNode,
+  Focus
 } from "tiptap-extensions";
 
 const EditorInstance = new Editor({
@@ -68,6 +69,12 @@ const EditorInstance = new Editor({
     new Image(),
     new TrailingNode({
       node: "paragraph"
+    }),
+    new Focus({
+      className: store.state.Preferences.s_focus_cursor
+        ? "tiptap-has-focus"
+        : "",
+      nested: false
     })
   ]
 });
