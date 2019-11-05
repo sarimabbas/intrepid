@@ -2,6 +2,10 @@
 
 > A note-taking app for macOS
 
+<p align="center">
+    <img src="./docs/icon.png" width=70 alt="icon">
+</p>
+
 ![Cover](./docs/cover.png)
 
 ## Table of contents
