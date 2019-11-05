@@ -26,7 +26,8 @@ import {
   Underline,
   History,
   TrailingNode,
-  Focus
+  Focus,
+  Search
 } from "tiptap-extensions";
 
 const EditorInstance = new Editor({
@@ -75,6 +76,9 @@ const EditorInstance = new Editor({
         ? "tiptap-has-focus"
         : "",
       nested: false
+    }),
+    new Search({
+      disableRegex: false
     })
   ]
 });

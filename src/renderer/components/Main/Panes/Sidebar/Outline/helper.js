@@ -65,7 +65,7 @@ export const convertTocArrayToTree = tocArray => {
 
 export const getCurrentTocArray = () => {
   const data = EditorInstance.getJSON();
-  console.log(data);
+  //   console.log(data);
   return data.content.filter(
     block => block.content && block.type === "heading"
   );
