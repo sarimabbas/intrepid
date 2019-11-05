@@ -2,8 +2,9 @@
 <script>
 import IconButton from "../../../../IconButton/IconButton";
 import { SidebarIcon, ShareIcon } from "vue-feather-icons";
-import EditorInstance from "../../EditorInstance";
+import createHTML from "./createHTML";
 import { dialog, jetpack } from "../../../../../../common";
+import TurndownService from "turndown";
 export default {
   components: {
     IconButton,
@@ -15,13 +16,23 @@ export default {
         showsTagField: true,
         defaultPath
       });
-      //   console.log(file_path);
+      if (!file_path) {
+        return;
+      }
       jetpack.remove(file_path);
       jetpack.append(file_path, contents);
     },
-    exportMarkdown() {},
+    exportMarkdown() {
+      const html = createHTML();
+      const turndown = new TurndownService({
+        headingStyle: "atx",
+        codeBlockStyle: "fenced"
+      });
+      const markdown = turndown.turndown(html);
+      console.log(markdown);
+    },
     exportHTML() {
-      const contents = EditorInstance.getHTML();
+      const contents = createHTML();
       this.saveFile(contents, "Untitled.html");
     }
   }
@@ -37,7 +48,7 @@ export default {
     </div>
 
     <b-dropdown-item aria-role="listitem" @click="exportHTML">HTML</b-dropdown-item>
-    <b-dropdown-item aria-role="listitem">Markdown</b-dropdown-item>
+    <b-dropdown-item aria-role="listitem" @click="exportMarkdown">Markdown</b-dropdown-item>
     <b-dropdown-item aria-role="listitem">PDF</b-dropdown-item>
   </b-dropdown>
 </template>
