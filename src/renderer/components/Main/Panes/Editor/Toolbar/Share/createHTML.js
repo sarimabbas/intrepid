@@ -1,7 +1,33 @@
 import EditorInstance from "../../EditorInstance";
+import { jetpack, mime } from "../../../../../../common";
+
+// TODO
+// ! DANGER
+// figure out a way to reliably remove file:// prefix to prevent jetpack reads failing
+const embedAssets = contents => {
+  const domParser = new DOMParser();
+  const parsedDocument = domParser.parseFromString(contents, "text/html");
+  const images = parsedDocument.querySelectorAll("img[src]");
+  for (let image of images) {
+    const imageBuffer = jetpack.read(
+      image.src.replace("file://", ""),
+      "buffer"
+    );
+    const mimeType = mime.getType(image.src);
+    const base64 = imageBuffer.toString("base64");
+    if (imageBuffer) {
+      image.src = `data:${mimeType};base64,${base64}`;
+    }
+  }
+  return parsedDocument.body.innerHTML;
+};
 
 const createHTML = () => {
-  const contents = EditorInstance.getHTML();
+  let contents = EditorInstance.getHTML();
+
+  // go through all the the image tags and embed them into the document
+  contents = embedAssets(contents);
+
   return `
     <!DOCTYPE html>
     <html lang="en">

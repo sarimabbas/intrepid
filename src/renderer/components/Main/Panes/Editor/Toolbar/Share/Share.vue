@@ -5,6 +5,7 @@ import { SidebarIcon, ShareIcon } from "vue-feather-icons";
 import createHTML from "./createHTML";
 import { dialog, jetpack } from "../../../../../../common";
 import TurndownService from "turndown";
+
 export default {
   components: {
     IconButton,
@@ -21,10 +22,11 @@ export default {
       }
       jetpack.remove(file_path);
       jetpack.append(file_path, contents);
+      return file_path;
     },
     exportMarkdown() {
       const html = createHTML();
-      const turndown = new TurndownService({
+      let turndown = new TurndownService({
         headingStyle: "atx",
         codeBlockStyle: "fenced"
       });
@@ -33,7 +35,7 @@ export default {
     },
     exportHTML() {
       const html = createHTML();
-      this.saveFile(html, "Untitled.html");
+      const saved_to_file_path = this.saveFile(html, "Untitled.html");
     }
   }
 };

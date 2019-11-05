@@ -57,6 +57,7 @@
     "fs-jetpack": "^2.2.3",
     "highlight.js": "^9.16.2",
     "lodash.merge": "^4.6.2",
+    "mime": "^2.4.4",
     "sl-vue-tree": "^1.8.4",
     "tiptap": "^1.26.4",
     "tiptap-extensions": "^1.28.4",
@@ -71,7 +72,6 @@
     "vuex-electron": "^1.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2",
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",

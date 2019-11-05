@@ -23,7 +23,7 @@ export default {
     <div class="toolbar-buttons">
       <IconButton @click.native="m_sidebar_toggle" :is-active="s_sidebar_toggle">
         <sidebar-icon size="1.5x" />
-      </IconButton>hello
+      </IconButton>
       <Share />
     </div>
   </footer>

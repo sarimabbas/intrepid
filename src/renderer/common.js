@@ -3,6 +3,7 @@ const currentWindow = remote.getCurrentWindow();
 const fs = remote.require("fs");
 const jetpack = remote.require("fs-jetpack");
 const { Menu, dialog } = remote;
+const mime = require("mime");
 
 module.exports = {
   remote,
@@ -12,5 +13,6 @@ module.exports = {
   jetpack,
   Menu,
   dialog,
-  shell
+  shell,
+  mime
 };
