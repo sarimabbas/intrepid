@@ -6,13 +6,13 @@ export default {
 </script>
 
 <template>
-  <button :class="{ 'button' : true, 'is-active': isActive, 'is-text' : true, 'is-small' : true, }">
+  <button :class="[ isActive ? 'is-active' : null, 'button', 'is-text', 'is-small']">
     <slot />
   </button>
 </template>
 
 
-<style>
+<style scoped>
 .is-text {
   color: white !important;
   text-decoration: none !important;
