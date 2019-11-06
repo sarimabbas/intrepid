@@ -6,11 +6,11 @@ import {
   CodeIcon,
   ListIcon,
   RotateCcwIcon,
-  RotateCwIcon
+  RotateCwIcon,
+  SearchIcon
 } from "vue-feather-icons";
-
 import IconButton from "../../../IconButton/IconButton";
-
+import { mapState, mapActions } from "vuex";
 export default {
   components: {
     BoldIcon,
@@ -20,9 +20,16 @@ export default {
     ListIcon,
     RotateCcwIcon,
     RotateCwIcon,
+    SearchIcon,
     IconButton
   },
-  props: ["commands", "isActive"]
+  props: ["commands", "isActive"],
+  methods: {
+    ...mapActions("Interface", ["m_find_replace"])
+  },
+  computed: {
+    ...mapState("Interface", ["s_find_replace"])
+  }
 };
 </script>
 
@@ -70,6 +77,10 @@ export default {
 
     <!-- right controls -->
     <div>
+      <IconButton @click.native="m_find_replace" :is-active="s_find_replace">
+        <search-icon size="1.5x" />
+      </IconButton>
+
       <IconButton @click.native="commands.undo">
         <rotate-ccw-icon size="1.5x" />
       </IconButton>

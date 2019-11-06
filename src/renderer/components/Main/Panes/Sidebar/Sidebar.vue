@@ -31,9 +31,9 @@ export default {
     <div class="toolbar">
       <div class="toolbar-buttons">
         <PrefBasic />
-        <IconButton>
+        <!-- <IconButton>
           <search-icon size="1.5x" />
-        </IconButton>
+        </IconButton>-->
       </div>
     </div>
     <!-- finish bottom -->

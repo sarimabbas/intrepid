@@ -34,11 +34,9 @@ export default {
     <!-- menu controls -->
     <header class="menu-controls">
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
-        <div>
-          <Menubar :commands="commands" :is-active="isActive" />
-          <FindReplace :commands="commands" />
-        </div>
+        <Menubar :commands="commands" :is-active="isActive" />
       </editor-menu-bar>
+      <FindReplace />
     </header>
 
     <!-- writing area -->

@@ -1,7 +1,11 @@
 <script>
 import EditorInstance from "../EditorInstance";
+import IconButton from "../../../IconButton/IconButton";
+import { mapState, mapActions } from "vuex";
 export default {
-  props: ["commands"],
+  components: {
+    IconButton
+  },
   data() {
     return {
       searchTerm: null,
@@ -19,34 +23,68 @@ export default {
       EditorInstance.commands.find(this.searchTerm);
     },
     clear() {
+      this.searchTerm = "";
+      this.replaceWith = "";
       EditorInstance.commands.clearSearch();
     }
+  },
+  computed: {
+    ...mapState("Interface", ["s_find_replace"])
   }
 };
 </script>
 
 <template>
-  <div class="search">
-    <input
-      ref="search"
-      @keydown.enter.prevent="() => commands.find(searchTerm)"
-      placeholder="Search …"
-      type="text"
-      v-model="searchTerm"
-    />
-    <input
-      @keydown.enter.prevent="() => commands.replace(replaceWith)"
-      placeholder="Replace …"
-      type="text"
-      v-model="replaceWith"
-    />
-    <button class="button" @click="find">Find</button>
-    <button class="button" @click="clear">Clear</button>
-    <button class="button" @click="replace">Replace</button>
-    <button class="button" @click="replaceAll">Replace All</button>
+  <div class="search" v-show="s_find_replace">
+    <hr class="dropdown-divider" />
+    <div class="flex-me">
+      <b-input
+        placeholder="Find..."
+        v-model="searchTerm"
+        size="is-small"
+        @keydown.enter.prevent.native="find"
+      ></b-input>
+      <div>
+        <IconButton class="button-control" @click.native="find">Find</IconButton>
+        <IconButton @click.native="clear">Clear</IconButton>
+      </div>
+    </div>
+    <div class="flex-me replace">
+      <b-input
+        placeholder="Replace..."
+        v-model="replaceWith"
+        size="is-small"
+        @keydown.enter.prevent.native="replace"
+      ></b-input>
+      <div>
+        <IconButton class="button-control" @click.native="replace">Replace</IconButton>
+        <IconButton @click.native="replaceAll">Replace All</IconButton>
+      </div>
+    </div>
   </div>
 </template>
 
+
+<style scoped>
+.search {
+  padding: 5px;
+  width: 100%;
+}
+
+.replace {
+  margin-top: 5px;
+}
+
+.button-control {
+  margin-left: 10px;
+}
+
+.flex-me {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+}
+</style>
 
 
 <style>
