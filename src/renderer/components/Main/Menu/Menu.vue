@@ -18,6 +18,9 @@ import EditorInstance from "../Panes/Editor/EditorInstance";
 
 export default {
   methods: {
+    showFindReplace() {
+      this.m_find_replace();
+    },
     closeWindow() {
       // if some unsaved changes, prompt to save
       if (this.s_pending_save) {
@@ -96,7 +99,8 @@ export default {
       currentWindow.setDocumentEdited(false);
       this.m_pending_save({ needs_save: false });
     },
-    ...mapActions("Document", ["m_current_file_path", "m_pending_save"])
+    ...mapActions("Document", ["m_current_file_path", "m_pending_save"]),
+    ...mapActions("Interface", ["m_find_replace"])
   },
   computed: {
     ...mapState("Document", ["s_current_file_path", "s_pending_save"])
@@ -117,6 +121,10 @@ export default {
 
     ipcRenderer.on("window-close", (event, data) => {
       this.closeWindow();
+    });
+
+    ipcRenderer.on("find-replace", (event, data) => {
+      this.showFindReplace();
     });
   }
 };

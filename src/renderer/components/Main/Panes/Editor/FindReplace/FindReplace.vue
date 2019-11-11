@@ -85,6 +85,10 @@ export default {
   align-items: center;
   /* justify-content: flex-end; */
 }
+
+.dropdown-divider {
+  height: 0.5px;
+}
 </style>
 
 

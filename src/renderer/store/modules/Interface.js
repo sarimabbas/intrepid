@@ -18,6 +18,10 @@ const actions = {
   },
   m_find_replace({ commit }) {
     commit("m_find_replace");
+    // hack to focus the field
+    window.setTimeout(function() {
+      document.getElementById("find-field").focus();
+    }, 0);
   }
 };
 

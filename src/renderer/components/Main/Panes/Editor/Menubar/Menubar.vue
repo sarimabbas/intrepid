@@ -25,14 +25,6 @@ export default {
   },
   props: ["commands", "isActive"],
   methods: {
-    showFindReplace() {
-      this.m_find_replace();
-      // hack to focus the field
-      window.setTimeout(function() {
-        document.getElementById("find-field").focus();
-      }, 0);
-    },
-
     ...mapActions("Interface", ["m_find_replace"])
   },
   computed: {
@@ -85,7 +77,7 @@ export default {
 
     <!-- right controls -->
     <div>
-      <IconButton @click.native="showFindReplace" :is-active="s_find_replace">
+      <IconButton @click.native="m_find_replace" :is-active="s_find_replace">
         <search-icon size="1.5x" />
       </IconButton>
 
