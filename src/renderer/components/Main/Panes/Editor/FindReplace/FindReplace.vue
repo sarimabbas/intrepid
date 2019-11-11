@@ -43,6 +43,7 @@ export default {
         v-model="searchTerm"
         size="is-small"
         @keydown.enter.prevent.native="find"
+        id="find-field"
       ></b-input>
       <div>
         <IconButton class="button-control" @click.native="find">Find</IconButton>
