@@ -5,6 +5,8 @@ import SlVueTree, {
   ICursorPosition
 } from "sl-vue-tree";
 
+import Node from "../Tree/Node";
+
 import { getCurrentTocArray, convertTocArrayToTree } from "./helper.js";
 import { mapState, mapActions } from "vuex";
 
@@ -19,10 +21,11 @@ export default {
     SlVueTree,
     CircleIcon,
     ChevronRightIcon,
-    ChevronDownIcon
+    ChevronDownIcon,
+    Node
   },
   methods: {
-    nodeClicked(node, event) {
+    nodeClicked(node) {
       document.getElementById(node.data.id).scrollIntoView({
         behavior: "smooth"
       });
@@ -35,28 +38,52 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="outline">
     <h1 class="heading-level">OUTLINE</h1>
-    <sl-vue-tree v-model="s_headings" @nodeclick="nodeClicked">
-      <!-- icon -->
+
+    <!-- <sl-vue-tree v-model="s_headings" @nodeclick="nodeClicked">
+
       <template slot="title" slot-scope="{ node }">
-        <span class="heading-level">H{{ node.data.level }}</span>
-        <span class="heading-label">{{ node.title }}</span>
+        <div class="node-data">
+          <span class="heading-level">H{{ node.data.level }}</span>
+          <span class="heading-label">{{ node.title }}</span>
+        </div>
       </template>
-      <!-- toggle -->
+
       <template slot="toggle" slot-scope="{ node }">
         <chevron-down-icon v-if="node.isExpanded" style="margin: 0" />
         <chevron-right-icon v-if="!node.isExpanded" style="margin: 0" />
-        <!-- <span v-else>leafd!!</span> -->
+
       </template>
-    </sl-vue-tree>
+    </sl-vue-tree>-->
+    <!-- <Tree :tree-data="s_headings" /> -->
+    <ul class="node-data">
+      <node
+        v-for="node in s_headings"
+        :node="node"
+        :key="node.data.id"
+        :handleNodeClick="nodeClicked"
+      />
+    </ul>
   </div>
-</template>
+</template> 
 
 <style scoped>
+.outline {
+  /* width: calc(100%);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+.node-data {
+}
+
 .heading-level {
   font-weight: 700;
   font-size: 10px;
+  margin-bottom: 10px;
 }
 
 .heading-label {

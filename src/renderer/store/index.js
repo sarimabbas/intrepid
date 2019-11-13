@@ -24,6 +24,7 @@ export default new Vuex.Store({
       reducer: state => {
         const copy = JSON.parse(JSON.stringify(state));
         delete copy.Document.s_current_file_path;
+        delete copy.Document.s_headings;
         delete copy.Interface.s_find_replace;
         return copy;
       }
