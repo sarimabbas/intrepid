@@ -72,7 +72,7 @@ export default class Heading extends Node {
     );
   }
 
-  // TODO
+  // TODO Bugfix: when pasting headings, the ID is duplicated
   // pasteRules({ type }) {
   //   return this.options.levels.map(level =>
   //     pasteRule(type, () => ({

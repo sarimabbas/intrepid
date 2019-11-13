@@ -21,9 +21,9 @@ export default {
         <h1 class="title">Intrepid</h1>
       </div>
       <br />
-      <div class="tree">
-        <Outline />
-      </div>
+      <!-- <div class="tree"> -->
+      <Outline />
+      <!-- </div> -->
     </div>
     <!-- finish top -->
 

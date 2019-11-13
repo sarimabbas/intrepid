@@ -57,24 +57,27 @@ export default {
       </template>
     </sl-vue-tree>-->
     <!-- <Tree :tree-data="s_headings" /> -->
-    <ul class="node-data">
-      <node
-        v-for="node in s_headings"
-        :node="node"
-        :key="node.data.id"
-        :handleNodeClick="nodeClicked"
-      />
-    </ul>
+    <div class="scrollable">
+      <ul class="node-data">
+        <node
+          v-for="node in s_headings"
+          :node="node"
+          :key="node.data.id"
+          :handleNodeClick="nodeClicked"
+        />
+      </ul>
+    </div>
   </div>
 </template> 
 
 <style scoped>
 .outline {
-  /* width: calc(100%);
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
+  height: 100%;
+}
+
+.scrollable {
+  height: 70vh;
+  overflow-y: auto;
 }
 
 .node-data {

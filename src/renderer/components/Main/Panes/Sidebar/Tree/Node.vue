@@ -39,6 +39,7 @@ export default {
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 2px;
+  cursor: pointer;
 }
 .node-text {
   width: calc(100%);
