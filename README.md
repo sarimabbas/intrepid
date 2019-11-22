@@ -14,8 +14,7 @@
   - [Table of contents](#table-of-contents)
   - [Goals](#goals)
   - [Features](#features)
-    - [Familiar Markdown syntax](#familiar-markdown-syntax)
-    - [Image handling](#image-handling)
+    - [More on image handling](#more-on-image-handling)
       - [Local images](#local-images)
       - [Remote images](#remote-images)
   - [Reading list](#reading-list)
@@ -35,14 +34,7 @@ I've been looking for an [effective way to take notes for some time](https://sar
 | Outline panel                   | :white_check_mark: | :white_check_mark:        |
 | Native performance              | :x:                | :x:                       |
 
-### Familiar Markdown syntax
-
-- Headings
-- Bold, italicized, justified text
-- Code + syntax highlighting
-- Images
-
-### Image handling
+### More on image handling
 
 #### Local images
 
