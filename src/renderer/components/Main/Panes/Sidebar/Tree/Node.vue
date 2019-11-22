@@ -1,10 +1,22 @@
 <template>
   <li class="node-item">
     <div class="node-label" @click="handleNodeClick(node)">
+      <span
+        class="node-collapse"
+        v-if="node.children && node.children.length"
+        @click="toggleChildren"
+      >
+        <chevron-down-icon
+          v-if="showChildren"
+          size="1.5x"
+          class="node-collapse-icon"
+        />
+        <chevron-right-icon v-else size="1.5x" class="node-collapse-icon" />
+      </span>
       <span class="node-level">H{{ node.data.level }}</span>
       <span class="node-text">{{ node.title }}</span>
     </div>
-    <ul v-if="node.children && node.children.length">
+    <ul v-if="node.children && node.children.length" v-show="showChildren">
       <node
         class="node-tree"
         v-for="child in node.children"
@@ -17,9 +29,24 @@
 </template>
 
 <script>
+import { ChevronRightIcon, ChevronDownIcon } from "vue-feather-icons";
 export default {
   name: "node",
-  props: ["node", "handleNodeClick"]
+  components: {
+    ChevronRightIcon,
+    ChevronDownIcon
+  },
+  props: ["node", "handleNodeClick"],
+  data() {
+    return {
+      showChildren: true
+    };
+  },
+  methods: {
+    toggleChildren() {
+      this.showChildren = !this.showChildren;
+    }
+  }
   //   watch: {
   //     node: function(newVal, oldVal) {
   //       console.log(newVal);
@@ -33,10 +60,21 @@ export default {
   margin-left: 16px;
   /* margin: 0; */
 }
-.node-level {
+
+.node-level,
+.node-collapse {
   margin-right: 5px;
   font-size: 0.6rem;
   font-weight: 700;
+}
+
+.node-collapse {
+  display: flex;
+  align-items: center;
+}
+
+.node-collapse-icon {
+  margin: 0;
 }
 .node-label {
   display: flex;
@@ -53,6 +91,6 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 </style>
