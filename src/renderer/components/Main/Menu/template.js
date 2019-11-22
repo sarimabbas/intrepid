@@ -14,7 +14,7 @@ const template = [
             { type: "separator" },
             { role: "services" },
             { type: "separator" },
-            { role: "hide" },
+            { role: "hide", label: "Hide Intrepid" },
             { role: "hideothers" },
             { role: "unhide" },
             { type: "separator" },
