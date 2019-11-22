@@ -29,7 +29,7 @@ const template = [
     submenu: [
       {
         label: "Open...",
-        accelerator: process.platform === "darwin" ? "Cmd+O" : "Ctrl+Shift+O",
+        accelerator: isMac ? "Cmd+O" : "Ctrl+Shift+O",
         click() {
           currentWindow.webContents.send("file-open-user");
         }
@@ -37,7 +37,7 @@ const template = [
       { type: "separator" },
       {
         label: "Save",
-        accelerator: process.platform === "darwin" ? "Cmd+S" : "Ctrl+S",
+        accelerator: isMac ? "Cmd+S" : "Ctrl+S",
         click() {
           currentWindow.webContents.send("file-save");
         }
@@ -57,7 +57,7 @@ const template = [
       { role: "paste" },
       {
         label: "Find",
-        accelerator: process.platform === "darwin" ? "Cmd+F" : "Ctrl+Shift+F",
+        accelerator: isMac ? "Cmd+F" : "Ctrl+Shift+F",
         click() {
           currentWindow.webContents.send("find-replace");
         }
@@ -113,7 +113,7 @@ const template = [
       {
         label: "Learn More",
         click: async () => {
-          await shell.openExternal("https://electronjs.org");
+          await shell.openExternal("https://github.com/sarimabbas/intrepid");
         }
       }
     ]
