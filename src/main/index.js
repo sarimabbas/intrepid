@@ -45,6 +45,12 @@ function createWindow() {
   });
 }
 
+app.on("will-finish-launching", function() {
+  app.on("open-file", function(ev, path) {
+    mainWindow.webContents.send("file-open-system", path);
+  });
+});
+
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {

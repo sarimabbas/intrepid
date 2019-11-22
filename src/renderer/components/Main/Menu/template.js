@@ -31,7 +31,7 @@ const template = [
         label: "Open...",
         accelerator: process.platform === "darwin" ? "Cmd+O" : "Ctrl+Shift+O",
         click() {
-          currentWindow.webContents.send("file-open");
+          currentWindow.webContents.send("file-open-user");
         }
       },
       { type: "separator" },

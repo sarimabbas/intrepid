@@ -11,7 +11,8 @@ import {
   dialog,
   fs,
   jetpack,
-  currentWindow
+  currentWindow,
+  app
 } from "../../../common";
 
 import EditorInstance from "../Panes/Editor/EditorInstance";
@@ -43,12 +44,25 @@ export default {
         currentWindow.destroy();
       }
     },
-    openFile() {
+    openFile(file_path) {
       // if some contents are there in a new window, prompt user to save
 
       // if a file is already open and unsaved, prompt user to save
 
-      // open dialog for .crncl file selection
+      if (!file_path) {
+        return;
+      }
+
+      this.m_current_file_path({ file_path });
+      currentWindow.setRepresentedFilename(file_path);
+      currentWindow.setTitle("Intrepid - " + file_path);
+      app.addRecentDocument(file_path);
+
+      // check for a JSON file inside
+      const content = jetpack.read(file_path + "/content.json");
+      EditorInstance.setContent(JSON.parse(content));
+    },
+    openFileUsingDialog() {
       const file_paths = dialog.showOpenDialogSync({
         properties: ["openDirectory", "treatPackageAsDirectory"],
         filters: [{ name: "Chronicle Files", extensions: [".crncl"] }]
@@ -58,14 +72,7 @@ export default {
         return;
       }
 
-      const file_path = file_paths[0];
-      this.m_current_file_path({ file_path });
-      currentWindow.setRepresentedFilename(file_path);
-      currentWindow.setTitle("Intrepid - " + file_path);
-
-      // check for a JSON file inside
-      const content = jetpack.read(file_path + "/content.json");
-      EditorInstance.setContent(JSON.parse(content));
+      this.openFile(file_paths[0]);
     },
     saveFile() {
       let file_path = this.s_current_file_path;
@@ -113,8 +120,12 @@ export default {
     Menu.setApplicationMenu(menu);
 
     // register listeners
-    ipcRenderer.on("file-open", (event, data) => {
-      this.openFile();
+    ipcRenderer.on("file-open-user", (event, data) => {
+      this.openFileUsingDialog();
+    });
+
+    ipcRenderer.on("file-open-system", (event, path) => {
+      this.openFile(path);
     });
 
     ipcRenderer.on("file-save", (event, data) => {

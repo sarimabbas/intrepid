@@ -2,7 +2,7 @@ const { remote, ipcRenderer, shell } = require("electron");
 const currentWindow = remote.getCurrentWindow();
 const fs = remote.require("fs");
 const jetpack = remote.require("fs-jetpack");
-const { Menu, dialog } = remote;
+const { Menu, dialog, app } = remote;
 const mime = require("mime");
 
 module.exports = {
@@ -14,5 +14,6 @@ module.exports = {
   Menu,
   dialog,
   shell,
-  mime
+  mime,
+  app
 };
