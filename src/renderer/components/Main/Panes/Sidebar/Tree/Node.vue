@@ -1,6 +1,6 @@
 <template>
   <li class="node-item">
-    <div class="node-label" @click="handleNodeClick(node)">
+    <div class="node-label">
       <span
         class="node-collapse"
         v-if="node.children && node.children.length"
@@ -13,8 +13,12 @@
         />
         <chevron-right-icon v-else size="1.5x" class="node-collapse-icon" />
       </span>
-      <span class="node-level">H{{ node.data.level }}</span>
-      <span class="node-text">{{ node.title }}</span>
+      <span class="node-level" @click="handleNodeClick(node)"
+        >H{{ node.data.level }}</span
+      >
+      <span class="node-text" @click="handleNodeClick(node)">{{
+        node.title
+      }}</span>
     </div>
     <ul v-if="node.children && node.children.length" v-show="showChildren">
       <node
