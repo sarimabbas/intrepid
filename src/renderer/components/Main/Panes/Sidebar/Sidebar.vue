@@ -3,12 +3,14 @@ import { SearchIcon } from "vue-feather-icons";
 import PrefBasic from "./Preferences/PrefBasic/PrefBasic.vue";
 import IconButton from "../../IconButton/IconButton";
 import Outline from "./Outline/Outline";
+import Logo from "./Logo/Logo";
 export default {
   components: {
     SearchIcon,
     PrefBasic,
     Outline,
-    IconButton
+    IconButton,
+    Logo
   }
 };
 </script>
@@ -17,9 +19,7 @@ export default {
   <div class="sidebar">
     <!-- top content -->
     <div class="top">
-      <div class="logo">
-        <h1 class="title">Intrepid</h1>
-      </div>
+      <Logo />
       <br />
       <!-- <div class="tree"> -->
       <Outline />
@@ -40,18 +40,7 @@ export default {
   </div>
 </template>
 
-
-
 <style scoped>
-.logo {
-  cursor: default;
-  user-select: none;
-}
-
-.title {
-  color: white;
-}
-
 .sidebar {
   display: flex;
   flex-direction: column;

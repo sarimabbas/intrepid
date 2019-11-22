@@ -1,6 +1,7 @@
 <template>
   <li class="node-item">
     <div class="node-label" @click="handleNodeClick(node)">
+      <span class="node-level">H{{ node.data.level }}</span>
       <span class="node-text">{{ node.title }}</span>
     </div>
     <ul v-if="node.children && node.children.length">
@@ -31,6 +32,11 @@ export default {
 .node-tree {
   margin-left: 16px;
   /* margin: 0; */
+}
+.node-level {
+  margin-right: 5px;
+  font-size: 0.6rem;
+  font-weight: 700;
 }
 .node-label {
   display: flex;

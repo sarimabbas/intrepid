@@ -11,7 +11,6 @@ import {
 
 export default {
   components: {
-    SlVueTree,
     CircleIcon,
     ChevronRightIcon,
     ChevronDownIcon,
