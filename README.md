@@ -26,10 +26,14 @@ I've been looking for an [effective way to take notes for some time](https://sar
 
 ## Features
 
-| Feature          | Intrepid           |
-| ---------------- | ------------------ |
-| Markdown WYSIWYG | :heavy_check_mark: |
-| Paragraph        | Text               |
+| Feature                         | Intrepid           | Typora                    |
+| ------------------------------- | ------------------ | ------------------------- |
+| Markdown WYSIWYG                | :white_check_mark: | :white_check_mark:        |
+| Images (embedded or file links) | :white_check_mark: | :question: (not embedded) |
+| Bundle file format              | :white_check_mark: | :x:                       |
+| Syntax highlighting             | :white_check_mark: | :white_check_mark:        |
+| Outline panel                   | :white_check_mark: | :white_check_mark:        |
+| Native performance              | :x:                | :x:                       |
 
 ### Familiar Markdown syntax
 
