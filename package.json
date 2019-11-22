@@ -19,6 +19,7 @@
   "build": {
     "productName": "Intrepid",
     "appId": "com.sarimabbas.intrepid",
+    "copyright": "Copyright © 2019 Sarim Abbas",
     "directories": {
       "output": "build"
     },
@@ -40,8 +41,17 @@
         }
       ]
     },
+    "fileAssociations": [
+      {
+        "ext": "crncl",
+        "name": "Chronicle",
+        "role": "Editor",
+        "isPackage": true
+      }
+    ],
     "mac": {
-      "icon": "build/icons/icon.icns"
+      "icon": "build/icons/icon.icns",
+      "category": "public.app-category.productivity"
     },
     "win": {
       "icon": "build/icons/icon.ico"
