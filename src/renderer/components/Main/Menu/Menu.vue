@@ -60,6 +60,7 @@ export default {
 
       const file_path = file_paths[0];
       this.m_current_file_path({ file_path });
+      currentWindow.setRepresentedFilename(file_path);
       currentWindow.setTitle("Intrepid - " + file_path);
 
       // check for a JSON file inside
@@ -83,6 +84,7 @@ export default {
 
       this.m_current_file_path({ file_path });
       currentWindow.setTitle("Intrepid - " + file_path);
+      currentWindow.setRepresentedFilename(file_path);
 
       // e.g. file_path === .../.../Untitled.crncl
 
