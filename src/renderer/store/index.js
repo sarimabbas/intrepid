@@ -25,6 +25,7 @@ export default new Vuex.Store({
         const copy = JSON.parse(JSON.stringify(state));
         delete copy.Document.s_current_file_path;
         delete copy.Document.s_headings;
+        delete copy.Document.s_pending_save;
         delete copy.Interface.s_find_replace;
         return copy;
       }
