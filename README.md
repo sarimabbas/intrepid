@@ -26,10 +26,10 @@ I've been looking for an [effective way to take notes for some time](https://sar
 
 ## Features
 
-| Feature          | Intrepid |
-| ---------------- | -------- |
-| Markdown WYSIWYG | - [x]    |
-| Paragraph        | Text     |
+| Feature          | Intrepid           |
+| ---------------- | ------------------ |
+| Markdown WYSIWYG | :heavy_check_mark: |
+| Paragraph        | Text               |
 
 ### Familiar Markdown syntax
 
