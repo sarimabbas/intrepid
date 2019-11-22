@@ -61,16 +61,18 @@ export default {
   /* margin: 0; */
 }
 
-.node-level,
 .node-collapse {
-  margin-right: 5px;
+  display: flex;
+  align-items: center;
   font-size: 0.6rem;
   font-weight: 700;
 }
 
-.node-collapse {
-  display: flex;
-  align-items: center;
+.node-level {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 0.6rem;
+  font-weight: 700;
 }
 
 .node-collapse-icon {
