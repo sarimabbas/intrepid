@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain, dialog } from "electron";
 
 /**
  * Set `__static` path to static files in production
@@ -9,6 +9,8 @@ if (process.env.NODE_ENV !== "development") {
     .join(__dirname, "/static")
     .replace(/\\/g, "\\\\");
 }
+
+let preventClose = false;
 
 let mainWindow;
 const winURL =
@@ -36,14 +38,32 @@ function createWindow() {
   mainWindow.loadURL(winURL);
 
   mainWindow.on("close", event => {
-    event.preventDefault();
-    mainWindow.webContents.send("window-close");
+    if (preventClose) {
+      const choice = dialog.showMessageBoxSync({
+        type: "question",
+        buttons: ["Save", "Cancel", "Don't Save"],
+        title: "Confirm",
+        message: "Do you want to save the changes you've made?",
+        detail: "Your changes will be lost if you do not save them."
+      });
+
+      if (choice == 0 || choice == 1) {
+        event.preventDefault();
+        if (choice == 0) {
+          mainWindow.webContents.send("file-save");
+        }
+      }
+    }
   });
 
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
 }
+
+ipcMain.on("prevent-close", (event, data) => {
+  preventClose = data;
+});
 
 app.on("will-finish-launching", function() {
   app.on("open-file", function(ev, path) {

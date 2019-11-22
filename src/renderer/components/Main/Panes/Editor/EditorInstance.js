@@ -1,4 +1,4 @@
-import { currentWindow } from "../../../../common";
+import { currentWindow, ipcRenderer } from "../../../../common";
 import store from "../../../../store";
 import { createOutline } from "../Sidebar/Outline/helper";
 import { Editor } from "tiptap";
@@ -35,6 +35,7 @@ const EditorInstance = new Editor({
     if (!currentWindow.isDocumentEdited()) {
       currentWindow.setDocumentEdited(true);
       store.dispatch("Document/m_pending_save", { needs_save: true });
+      ipcRenderer.send("prevent-close", true);
     }
 
     // ostensibly a better way to access store outside of Vue

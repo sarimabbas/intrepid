@@ -22,28 +22,6 @@ export default {
     showFindReplace() {
       this.m_find_replace();
     },
-    closeWindow() {
-      // if some unsaved changes, prompt to save
-      if (this.s_pending_save) {
-        const choice = dialog.showMessageBoxSync({
-          type: "question",
-          buttons: ["Save", "Cancel", "Don't Save"],
-          title: "Confirm",
-          message: "Do you want to save the changes you've made?",
-          detail: "Your changes will be lost if you do not save them."
-        });
-
-        if (choice == 0) {
-          this.saveFile();
-        } else if (choice == 2) {
-          currentWindow.destroy();
-        }
-
-        // if no unsaved changes, destroy window
-      } else {
-        currentWindow.destroy();
-      }
-    },
     openFile(file_path) {
       // if some contents are there in a new window, prompt user to save
 
@@ -107,6 +85,7 @@ export default {
 
       currentWindow.setDocumentEdited(false);
       this.m_pending_save({ needs_save: false });
+      ipcRenderer.send("prevent-close", false);
     },
     ...mapActions("Document", ["m_current_file_path", "m_pending_save"]),
     ...mapActions("Interface", ["m_find_replace"])
@@ -143,5 +122,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
