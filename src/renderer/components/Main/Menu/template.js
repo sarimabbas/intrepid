@@ -10,7 +10,7 @@ const template = [
         {
           label: app.name,
           submenu: [
-            { role: "about" },
+            { role: "about", label: "About Intrepid" },
             { type: "separator" },
             { role: "services" },
             { type: "separator" },
@@ -18,7 +18,7 @@ const template = [
             { role: "hideothers" },
             { role: "unhide" },
             { type: "separator" },
-            { role: "quit" }
+            { role: "quit", label: "Quit Intrepid" }
           ]
         }
       ]
