@@ -1,4 +1,4 @@
-# Intrepid 
+# Intrepid
 
 > A note-taking app for macOS
 
@@ -9,6 +9,7 @@
 ![Cover](./docs/cover.png)
 
 ## Table of contents
+
 - [Intrepid](#intrepid)
   - [Table of contents](#table-of-contents)
   - [Goals](#goals)
@@ -25,6 +26,11 @@ I've been looking for an [effective way to take notes for some time](https://sar
 
 ## Features
 
+| Feature          | Intrepid |
+| ---------------- | -------- |
+| Markdown WYSIWYG | - [x]    |
+| Paragraph        | Text     |
+
 ### Familiar Markdown syntax
 
 - Headings
@@ -36,11 +42,11 @@ I've been looking for an [effective way to take notes for some time](https://sar
 
 #### Local images
 
-One of the core principles behind Intrepid is that your data must be portable. For a new, unsaved file, pasted or dropped images are embedded as Base64 encoded strings. When the file is saved, these images are extracted to an assets folder inside your file. From then on, all new images are added to the assets folder. 
+One of the core principles behind Intrepid is that your data must be portable. For a new, unsaved file, pasted or dropped images are embedded as Base64 encoded strings. When the file is saved, these images are extracted to an assets folder inside your file. From then on, all new images are added to the assets folder.
 
 #### Remote images
 
-Use the Markdown image syntax. All these links will remain unchanged. 
+Use the Markdown image syntax. All these links will remain unchanged.
 
 ## Reading list
 
