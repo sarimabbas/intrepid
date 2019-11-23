@@ -59,7 +59,6 @@ function createWindow() {
   });
 
   mainWindow.on("closed", () => {
-    console.log("closed!!");
     mainWindow = null;
     mainWindowIsReady = false;
   });
@@ -84,7 +83,6 @@ ipcMain.on("prevent-close", (event, data) => {
 // handle open events e.g. drag file onto dock, double-click in Finder
 app.on("open-file", function(ev, path) {
   // add path
-  console.log("pushing path");
   stashFilePaths.push(path);
 
   // create new window if app is running but no windows are open
@@ -107,7 +105,6 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-  console.log("activate run!");
   if (mainWindow === null) {
     createWindow();
   }
