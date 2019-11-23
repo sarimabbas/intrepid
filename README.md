@@ -18,7 +18,7 @@
       - [Local images](#local-images)
       - [Remote images](#remote-images)
   - [Reading list](#reading-list)
-    - [Use of Electron](#use-of-electron)
+  - [Use of Electron](#use-of-electron)
 
 ## Goals
 
@@ -49,6 +49,6 @@ Use the Markdown image syntax. All these links will remain unchanged.
 
 - https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21
 
-### Use of Electron
+## Use of Electron
 
 Electron is notorious for memory consumption and large app sizes. However, it remains the best tool (for me) to prototype quickly using my web development skills, and plug into the vast JavaScript ecosystem. As Intrepid develops, I will try to optimize it and reduce its footprint.
