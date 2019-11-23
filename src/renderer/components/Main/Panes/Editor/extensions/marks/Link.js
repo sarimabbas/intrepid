@@ -1,5 +1,10 @@
 import { Mark, Plugin } from "tiptap";
-import { updateMark, removeMark, pasteRule } from "tiptap-commands";
+import {
+  updateMark,
+  removeMark,
+  pasteRule,
+  markInputRule
+} from "tiptap-commands";
 import { getMarkAttrs } from "tiptap-utils";
 import { shell } from "../../../../../../common";
 
@@ -57,6 +62,18 @@ export default class Link extends Mark {
         /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-zA-Z]{2,}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/g,
         type,
         url => ({ href: url })
+      )
+    ];
+  }
+
+  inputRules({ type }) {
+    return [
+      markInputRule(
+        /(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*))\s$/g,
+        type,
+        matches => {
+          return { href: matches[1] };
+        }
       )
     ];
   }
