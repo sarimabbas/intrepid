@@ -40,7 +40,7 @@ export default {
     </header>
 
     <!-- writing area -->
-    <content class="pm-custom">
+    <content id="editor-content" class="pm-custom">
       <editor-content :editor="editor" class="content" />
     </content>
 
@@ -50,7 +50,6 @@ export default {
     <!-- end -->
   </div>
 </template>
-
 
 <style scoped>
 /* flex base */
