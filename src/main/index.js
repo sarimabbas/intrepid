@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, dialog } from "electron";
+import { app, BrowserWindow, ipcMain, dialog, shell } from "electron";
 
 /**
  * Set `__static` path to static files in production
@@ -68,6 +68,14 @@ function createWindow() {
     while (stashFilePaths.length) {
       const pathToOpen = stashFilePaths.pop();
       mainWindow.webContents.send("file-open-system", pathToOpen);
+    }
+  });
+
+  // open all webContents links in external browser
+  mainWindow.webContents.on("new-window", (event, url) => {
+    if (url !== mainWindow.webContents.getURL()) {
+      event.preventDefault();
+      shell.openExternal(url);
     }
   });
 

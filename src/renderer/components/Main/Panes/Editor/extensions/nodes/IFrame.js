@@ -48,12 +48,33 @@ export default class IFrame extends Node {
           }
         }
       },
-      template: `
-        <div class="iframe">
-          <iframe class="iframe__embed" :src="src"></iframe>
-          <input class="iframe__input" @paste.stop type="text" v-model="src" v-if="view.editable" />
-        </div>
-      `
+      render(h) {
+        return (
+          // div is parent
+          h(
+            "div",
+            {
+              class: "iframe"
+            },
+            // these are nested inside
+            [
+              h("iframe", {
+                class: "iframe__embed",
+                attrs: {
+                  src: this.src
+                }
+              })
+            ]
+          )
+        );
+      }
+
+      //   template: `
+      //     <div class="iframe">
+      //       <iframe class="iframe__embed" :src="src"></iframe>
+      //       <input class="iframe__input" @paste.stop type="text" v-model="src" v-if="view.editable" />
+      //     </div>
+      //   `
     };
   }
 }
