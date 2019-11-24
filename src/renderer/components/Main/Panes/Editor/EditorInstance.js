@@ -9,6 +9,7 @@ import HardBreak from "./extensions/nodes/HardBreak";
 import CodeBlockHighlight from "./extensions/nodes/CodeBlockHighlight";
 import Heading from "./extensions/nodes/Heading";
 import languages from "./extensions/languages";
+import IFrame from "./extensions/nodes/IFrame";
 
 import {
   Blockquote,
@@ -80,8 +81,18 @@ const EditorInstance = new Editor({
     }),
     new Search({
       disableRegex: false
-    })
-  ]
+    }),
+    new IFrame()
+  ],
+  content: `
+  <h2>
+    Embeds
+  </h2>
+  <p>
+    This is an example of a custom iframe node. This iframe is rendered as a <strong>vue component</strong>. This makes it possible to render the input below to change its source.
+  </p>
+  <iframe src="https://www.youtube.com/embed/XIMLoLxmTDw" frameborder="0" allowfullscreen></iframe>
+`
 });
 
 export default EditorInstance;
