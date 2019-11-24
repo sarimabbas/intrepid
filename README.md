@@ -17,6 +17,7 @@
     - [More on image handling](#more-on-image-handling)
       - [Local images](#local-images)
       - [Remote images](#remote-images)
+    - [Supported embed services](#supported-embed-services)
   - [Reading list](#reading-list)
   - [Use of Electron](#use-of-electron)
 
@@ -45,6 +46,13 @@ One of the core principles behind Intrepid is that your data must be portable. F
 #### Remote images
 
 Use the Markdown image syntax. All these links will remain unchanged.
+
+### Supported embed services
+
+Paste in a URL from one of these services and click the Embed button in the toolbar.
+
+- YouTube
+- Vimeo
 
 ## Reading list
 
