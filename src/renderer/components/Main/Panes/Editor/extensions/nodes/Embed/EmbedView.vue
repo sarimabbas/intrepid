@@ -1,7 +1,6 @@
 
 
 <script>
-import getVideoId from "get-video-id";
 export default {
   props: ["node", "updateAttrs", "view"],
   computed: {
