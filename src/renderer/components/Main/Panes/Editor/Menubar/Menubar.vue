@@ -73,6 +73,8 @@ export default {
         :is-active="isActive.heading({ level: 3 })"
         @click.native="() => commands.heading({ level: 3 })"
       >H3</IconButton>
+
+      <IconButton @click.native="commands.embed">Embed</IconButton>
     </div>
 
     <!-- right controls -->

@@ -66,6 +66,7 @@
     "electron-log": "^3.0.8",
     "electron-store": "^5.1.0",
     "fs-jetpack": "^2.2.3",
+    "get-video-id": "^3.1.4",
     "highlight.js": "^9.16.2",
     "katex": "^0.11.1",
     "lodash.merge": "^4.6.2",
