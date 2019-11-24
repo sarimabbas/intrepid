@@ -7,7 +7,8 @@ import {
   ListIcon,
   RotateCcwIcon,
   RotateCwIcon,
-  SearchIcon
+  SearchIcon,
+  LayersIcon
 } from "vue-feather-icons";
 import IconButton from "../../../IconButton/IconButton";
 import { mapState, mapActions } from "vuex";
@@ -21,7 +22,8 @@ export default {
     RotateCcwIcon,
     RotateCwIcon,
     SearchIcon,
-    IconButton
+    IconButton,
+    LayersIcon
   },
   props: ["commands", "isActive"],
   methods: {
@@ -74,7 +76,9 @@ export default {
         @click.native="() => commands.heading({ level: 3 })"
       >H3</IconButton>
 
-      <IconButton @click.native="commands.embed">Embed</IconButton>
+      <IconButton @click.native="commands.embed">
+        <layers-icon size="1.5x" />
+      </IconButton>
     </div>
 
     <!-- right controls -->

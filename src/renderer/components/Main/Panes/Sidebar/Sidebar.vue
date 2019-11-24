@@ -54,7 +54,7 @@ export default {
 }
 
 .toolbar {
-  background-color: #333333;
+  background-color: transparent;
   padding: 7px;
   color: white;
 }
