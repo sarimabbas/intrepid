@@ -17,7 +17,14 @@ export default {
 </script>
 
 <template>
-  <iframe class="embed" v-if="isValidURL" :src="node.attrs.url" frameborder="0" width="100%"></iframe>
+  <iframe
+    class="embed"
+    v-if="isValidURL"
+    :src="node.attrs.url"
+    frameborder="0"
+    width="100%"
+    allowfullscreen
+  ></iframe>
   <div class="error" v-else>Embed error: URL invalid or service unsupported.</div>
 </template>
 
