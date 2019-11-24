@@ -1,13 +1,20 @@
 import { Node } from "tiptap";
+import getVideoId from "get-video-id";
 import EmbedView from "./EmbedView.vue";
-import {
-  setBlockType,
-  textblockTypeInputRule,
-  toggleBlockType,
-  pasteRule,
-  toggleWrap
-} from "tiptap-commands";
-import { getMarkAttrs } from "tiptap-utils";
+
+const transformURLToEmbedURL = url => {
+  // video embeds
+  const video = getVideoId(url);
+  if (video.service == "youtube") {
+    return `https://www.youtube.com/embed/${video.id}`;
+  } else if (video.servide == "dailymotion") {
+    return `https://www.dailymotion.com/embed/video/${video.id}`;
+  } else if (video.service == "vimeo") {
+    return `https://player.vimeo.com/video/${video.id}`;
+  }
+  // return empty if nothing can be done
+  return null;
+};
 
 export default class Embed extends Node {
   get name() {
@@ -50,18 +57,11 @@ export default class Embed extends Node {
 
       const node = type.create({
         ...attrs,
-        url: text
+        url: transformURLToEmbedURL(text)
       });
 
       const transaction = state.tr.replaceSelectionWith(node);
       dispatch(transaction);
-
-      //   console.log(state);
-      //     getMarkAttrs();
-      //   return toggleBlockType(type, schema.nodes.paragraph, {
-      //     ...attrs,
-      //     url: "https://www.youtube.com/watch?v=guEn4MkE0sw"
-      //   });
     };
   }
 
