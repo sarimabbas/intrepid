@@ -20,6 +20,7 @@
       - [Remote images](#remote-images)
     - [Embeds](#embeds)
     - [Bookmarks](#bookmarks)
+    - [KaTeX](#katex)
   - [Reading list](#reading-list)
   - [Use of Electron](#use-of-electron)
 
@@ -42,6 +43,7 @@ I've been looking for an [effective way to take notes for some time](https://sar
 | Outline panel                              | :white_check_mark:           | :white_check_mark:              |
 | [Embeds](#embeds)                          | :white_check_mark: (Limited) | :white_check_mark: (Any Iframe) |
 | [Bookmarks/previews](#bookmarks)           | :white_check_mark:           | :x:                             |
+| [KaTeX](#katex)                            | :white_check_mark: (limited) | :white_check_mark:              |
 | Native performance                         | :x:                          | :x:                             |
 
 ### Images
@@ -66,6 +68,10 @@ Recommend a service (that is ideally embedded via Iframe) by opening an issue.
 ### Bookmarks
 
 Paste in a URL from anywhere and click the Bookmark button in the toolbar. You will see a detailed preview of the link.
+
+### KaTeX
+
+Write a plain-text math expression and click the KaTeX button in the toolbar. The math will be rendered. Interactive editing is planned.
 
 ## Reading list
 
