@@ -12,6 +12,7 @@
 
 - [Intrepid](#intrepid)
   - [Table of contents](#table-of-contents)
+  - [Disclaimer](#disclaimer)
   - [Goals](#goals)
   - [Features](#features)
     - [Images](#images)
@@ -21,6 +22,10 @@
     - [Bookmarks](#bookmarks)
   - [Reading list](#reading-list)
   - [Use of Electron](#use-of-electron)
+
+## Disclaimer
+
+Intrepid is in alpha stages and should not be used as a note-taking app replacement at this time. Features may break or change arbitrarily.
 
 ## Goals
 
