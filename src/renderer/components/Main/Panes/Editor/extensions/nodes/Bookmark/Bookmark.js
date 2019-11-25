@@ -1,24 +1,9 @@
 import { Node } from "tiptap";
-import getVideoId from "get-video-id";
-import EmbedView from "./EmbedView.vue";
+import BookmarkView from "./BookmarkView.vue";
 
-const transformURLToEmbedURL = url => {
-  // video embeds
-  const video = getVideoId(url);
-  if (video.service == "youtube") {
-    return `https://www.youtube.com/embed/${video.id}`;
-  } else if (video.servide == "dailymotion") {
-    return `https://www.dailymotion.com/embed/video/${video.id}`;
-  } else if (video.service == "vimeo") {
-    return `https://player.vimeo.com/video/${video.id}`;
-  }
-  // return original if nothing can be done
-  return url;
-};
-
-export default class Embed extends Node {
+export default class Bookmark extends Node {
   get name() {
-    return "embed";
+    return "bookmark";
   }
 
   get schema() {
@@ -43,13 +28,13 @@ export default class Embed extends Node {
 
       // although the Vue component decides the rendering, this is useful when exporting to HTML or Markdown
       toDOM: node => [
-        "iframe",
+        "div",
         {
           "data-type": this.name,
           "data-url": node.attrs.url,
           src: node.attrs.url
         },
-        0
+        `Bookmark for ${node.attrs.url}`
       ]
     };
   }
@@ -58,16 +43,16 @@ export default class Embed extends Node {
     return attrs => (state, dispatch, view) => {
       const cursor = state.selection.$cursor;
 
-      let text = "";
+      let currentNodeText = "";
       if (cursor.nodeBefore) {
-        text = cursor.nodeBefore.text;
+        currentNodeText = cursor.nodeBefore.text;
       } else if (cursor.nodeAfter) {
-        text = cursor.nodeAfter.text;
+        currentNodeText = cursor.nodeAfter.text;
       }
 
       const node = type.create({
         ...attrs,
-        url: transformURLToEmbedURL(text)
+        url: currentNodeText
       });
 
       const transaction = state.tr.replaceSelectionWith(node);
@@ -76,6 +61,6 @@ export default class Embed extends Node {
   }
 
   get view() {
-    return EmbedView;
+    return BookmarkView;
   }
 }

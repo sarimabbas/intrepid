@@ -9,6 +9,7 @@ import CodeBlockHighlight from "./extensions/nodes/CodeBlockHighlight";
 import Heading from "./extensions/nodes/Heading";
 import languages from "./extensions/languages";
 import Embed from "./extensions/nodes/Embed/Embed";
+import Bookmark from "./extensions/nodes/Bookmark/Bookmark";
 
 import {
   Blockquote,
@@ -82,7 +83,8 @@ const EditorInstance = new Editor({
     new Search({
       disableRegex: false
     }),
-    new Embed()
+    new Embed(),
+    new Bookmark()
   ]
 });
 
