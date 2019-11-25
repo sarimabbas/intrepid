@@ -9,7 +9,8 @@ import {
   RotateCwIcon,
   SearchIcon,
   PackageIcon,
-  BookmarkIcon
+  BookmarkIcon,
+  PercentIcon
 } from "vue-feather-icons";
 import IconButton from "../../../IconButton/IconButton";
 import { mapState, mapActions } from "vuex";
@@ -25,7 +26,8 @@ export default {
     SearchIcon,
     IconButton,
     PackageIcon,
-    BookmarkIcon
+    BookmarkIcon,
+    PercentIcon
   },
   props: ["commands", "isActive"],
   methods: {
@@ -41,19 +43,11 @@ export default {
   <div class="controls">
     <!-- left controls -->
     <div>
-      <IconButton
-        :is-active="isActive.bold()"
-        @click.native="commands.bold"
-        title="Bold"
-      >
+      <IconButton :is-active="isActive.bold()" @click.native="commands.bold" title="Bold">
         <bold-icon size="1.5x" />
       </IconButton>
 
-      <IconButton
-        :is-active="isActive.italic()"
-        @click.native="commands.italic"
-        title="Italic"
-      >
+      <IconButton :is-active="isActive.italic()" @click.native="commands.italic" title="Italic">
         <italic-icon size="1.5x" />
       </IconButton>
 
@@ -87,29 +81,34 @@ export default {
         title="Heading 1"
         :is-active="isActive.heading({ level: 1 })"
         @click.native="() => commands.heading({ level: 1 })"
-        >H1</IconButton
-      >
+      >H1</IconButton>
 
       <IconButton
         title="Heading 2"
         :is-active="isActive.heading({ level: 2 })"
         @click.native="() => commands.heading({ level: 2 })"
-        >H2</IconButton
-      >
+      >H2</IconButton>
 
       <IconButton
         title="Heading 3"
         :is-active="isActive.heading({ level: 3 })"
         @click.native="() => commands.heading({ level: 3 })"
-        >H3</IconButton
-      >
+      >H3</IconButton>
 
-      <IconButton @click.native="commands.embed" title="Embed Content">
+      <IconButton @click.native="commands.embed" :is-active="isActive.embed()" title="Embed">
         <package-icon size="1.5x" />
       </IconButton>
 
-      <IconButton @click.native="commands.bookmark" title="Bookmark Content">
+      <IconButton
+        @click.native="commands.bookmark"
+        :is-active="isActive.bookmark()"
+        title="Bookmark"
+      >
         <bookmark-icon size="1.5x" />
+      </IconButton>
+
+      <IconButton @click.native="commands.katex" title="KaTeX">
+        <percent-icon size="1.5x" />
       </IconButton>
     </div>
 

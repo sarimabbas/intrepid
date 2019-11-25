@@ -10,6 +10,7 @@ import Heading from "./extensions/nodes/Heading";
 import languages from "./extensions/languages";
 import Embed from "./extensions/nodes/Embed/Embed";
 import Bookmark from "./extensions/nodes/Bookmark/Bookmark";
+import Katex from "./extensions/nodes/Katex/Katex";
 
 import {
   Blockquote,
@@ -84,7 +85,8 @@ const EditorInstance = new Editor({
       disableRegex: false
     }),
     new Embed(),
-    new Bookmark()
+    new Bookmark(),
+    new Katex()
   ]
 });
 
