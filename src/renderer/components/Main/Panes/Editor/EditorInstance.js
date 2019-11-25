@@ -33,7 +33,6 @@ import {
   Search,
   Link
 } from "tiptap-extensions";
-import Katex from "./extensions/nodes/Katex/Katex";
 
 const EditorInstance = new Editor({
   onUpdate() {
