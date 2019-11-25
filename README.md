@@ -35,6 +35,7 @@ I've been looking for an [effective way to take notes for some time](https://sar
 | Syntax highlighting             | :white_check_mark:                           | :white_check_mark:                |
 | Outline panel                   | :white_check_mark:                           | :white_check_mark:                |
 | Web embeds                      | :white_check_mark: (smart links but limited) | :white_check_mark: (Iframes only) |
+| Link bookmarks/previews         | :white_check_mark:                           | :x:                               |
 | Native performance              | :x:                                          | :x:                               |
 
 ### More on image handling
