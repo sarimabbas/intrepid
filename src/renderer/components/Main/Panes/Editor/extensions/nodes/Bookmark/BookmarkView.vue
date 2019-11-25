@@ -20,12 +20,21 @@ export default {
       let previewData = "";
       try {
         previewData = await LinkPreview.getPreview(url);
+        console.log(previewData);
         const updateData = {
           url: url,
-          title: previewData.title,
-          description: previewData.description,
-          faviconURL: previewData.favicons.length && previewData.favicons[0],
-          previewImageURL: previewData.images.length && previewData.images[0]
+          title: previewData.title || "",
+          description: previewData.description || "",
+          faviconURL:
+            (previewData.favicons &&
+              previewData.favicons.length &&
+              previewData.favicons[0]) ||
+            "",
+          previewImageURL:
+            (previewData.images &&
+              previewData.images.length &&
+              previewData.images[0]) ||
+            ""
         };
         console.log(updateData);
         this.bookmark = updateData;
