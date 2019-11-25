@@ -14,10 +14,11 @@
   - [Table of contents](#table-of-contents)
   - [Goals](#goals)
   - [Features](#features)
-    - [More on image handling](#more-on-image-handling)
+    - [Images](#images)
       - [Local images](#local-images)
       - [Remote images](#remote-images)
-    - [Supported embed services](#supported-embed-services)
+    - [Embeds](#embeds)
+    - [Bookmarks](#bookmarks)
   - [Reading list](#reading-list)
   - [Use of Electron](#use-of-electron)
 
@@ -27,18 +28,18 @@ I've been looking for an [effective way to take notes for some time](https://sar
 
 ## Features
 
-| Feature                         | Intrepid                                     | Typora                            |
-| ------------------------------- | -------------------------------------------- | --------------------------------- |
-| Markdown WYSIWYG                | :white_check_mark:                           | :white_check_mark:                |
-| Images (embedded or file links) | :white_check_mark:                           | :question: (not embedded)         |
-| Bundle file format              | :white_check_mark:                           | :x:                               |
-| Syntax highlighting             | :white_check_mark:                           | :white_check_mark:                |
-| Outline panel                   | :white_check_mark:                           | :white_check_mark:                |
-| Web embeds                      | :white_check_mark: (smart links but limited) | :white_check_mark: (Iframes only) |
-| Link bookmarks/previews         | :white_check_mark:                           | :x:                               |
-| Native performance              | :x:                                          | :x:                               |
+| Feature                                    | Intrepid                     | Typora                          |
+| ------------------------------------------ | ---------------------------- | ------------------------------- |
+| Markdown WYSIWYG                           | :white_check_mark:           | :white_check_mark:              |
+| [Images](#images) (embedded or file links) | :white_check_mark:           | :question: (not embedded)       |
+| Bundle file format                         | :white_check_mark:           | :x:                             |
+| Syntax highlighting                        | :white_check_mark:           | :white_check_mark:              |
+| Outline panel                              | :white_check_mark:           | :white_check_mark:              |
+| [Embeds](#embeds)                          | :white_check_mark: (Limited) | :white_check_mark: (Any Iframe) |
+| [Bookmarks/previews](#bookmarks)           | :white_check_mark:           | :x:                             |
+| Native performance                         | :x:                          | :x:                             |
 
-### More on image handling
+### Images
 
 #### Local images
 
@@ -48,12 +49,18 @@ One of the core principles behind Intrepid is that your data must be portable. F
 
 Use the Markdown image syntax. All these links will remain unchanged.
 
-### Supported embed services
+### Embeds
 
-Paste in a URL from one of these services and click the Embed button in the toolbar.
+Paste in a URL from any of the services below and click the Embed button in the toolbar.
 
 - YouTube
 - Vimeo
+
+Recommend a service (that is ideally embedded via Iframe) by opening an issue.
+
+### Bookmarks
+
+Paste in a URL from anywhere and click the Bookmark button in the toolbar. You will see a detailed preview of the link.
 
 ## Reading list
 
