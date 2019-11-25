@@ -52,7 +52,12 @@ export default {
 
 <template>
   <!-- BOOKMARK -->
-  <div class="bookmark" v-if="bookmark.url" :data-url="bookmark.url" data-type="bookmark">
+  <div
+    class="bookmark"
+    v-if="bookmark.url && bookmark.url != 'error'"
+    :data-url="bookmark.url"
+    data-type="bookmark"
+  >
     <!-- LEFT -->
     <div class="bookmark-left">
       <img
