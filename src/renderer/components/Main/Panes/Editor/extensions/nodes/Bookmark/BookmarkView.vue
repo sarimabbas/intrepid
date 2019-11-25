@@ -102,6 +102,7 @@ export default {
   border: 1px solid lightgrey;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .bookmark::before,
