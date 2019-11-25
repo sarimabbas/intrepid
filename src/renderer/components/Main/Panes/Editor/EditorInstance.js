@@ -11,6 +11,7 @@ import languages from "./extensions/languages";
 import Embed from "./extensions/nodes/Embed/Embed";
 import Bookmark from "./extensions/nodes/Bookmark/Bookmark";
 import Katex from "./extensions/nodes/Katex/Katex";
+import Math from "./extensions/nodes/Math/Math";
 
 import {
   Blockquote,
@@ -32,6 +33,7 @@ import {
   Search,
   Link
 } from "tiptap-extensions";
+import Katex from "./extensions/nodes/Katex/Katex";
 
 const EditorInstance = new Editor({
   onUpdate() {
