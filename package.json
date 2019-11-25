@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Sarim Abbas <sarim.stays@gmail.com>",
   "description": "A productivity concept",
-  "license": null,
+  "license": "GPL-3.0",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
