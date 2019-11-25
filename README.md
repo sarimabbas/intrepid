@@ -23,6 +23,7 @@
     - [KaTeX](#katex)
   - [Reading list](#reading-list)
   - [Use of Electron](#use-of-electron)
+  - [Download](#download)
 
 ## Disclaimer
 
@@ -80,3 +81,9 @@ Write a plain-text math expression and click the KaTeX button in the toolbar. Th
 ## Use of Electron
 
 Electron is notorious for memory consumption and large app sizes. However, it remains the best tool (for me) to prototype quickly using my web development skills, and plug into the vast JavaScript ecosystem. As Intrepid develops, I will try to optimize it and reduce its footprint.
+
+## Download
+
+Recommended for testing only. See [disclaimer](#disclaimer).
+
+Download the [latest release](https://github.com/sarimabbas/intrepid/releases).
