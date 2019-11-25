@@ -58,16 +58,16 @@ export default class Embed extends Node {
     return attrs => (state, dispatch, view) => {
       const cursor = state.selection.$cursor;
 
-      let text = "";
+      let currentNodeText = "";
       if (cursor.nodeBefore) {
-        text = cursor.nodeBefore.text;
+        currentNodeText = cursor.nodeBefore.text;
       } else if (cursor.nodeAfter) {
-        text = cursor.nodeAfter.text;
+        currentNodeText = cursor.nodeAfter.text;
       }
 
       const node = type.create({
         ...attrs,
-        url: transformURLToEmbedURL(text)
+        url: transformURLToEmbedURL(currentNodeText)
       });
 
       const transaction = state.tr.replaceSelectionWith(node);
