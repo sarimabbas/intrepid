@@ -41,7 +41,7 @@ I've been looking for an [effective way to take notes for some time](https://sar
 | Bundle file format                         | :white_check_mark:           | :x:                             |
 | Syntax highlighting                        | :white_check_mark:           | :white_check_mark:              |
 | Outline panel                              | :white_check_mark:           | :white_check_mark:              |
-| [Embeds](#embeds)                          | :white_check_mark: (Limited) | :white_check_mark: (Any Iframe) |
+| [Embeds](#embeds)                          | :white_check_mark: (limited) | :white_check_mark: (any Iframe) |
 | [Bookmarks/previews](#bookmarks)           | :white_check_mark:           | :x:                             |
 | [KaTeX](#katex)                            | :white_check_mark: (limited) | :white_check_mark:              |
 | Native performance                         | :x:                          | :x:                             |
