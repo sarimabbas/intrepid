@@ -5,6 +5,10 @@
 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 */
 /*! Theme created with the Bootstrap Shuffle (https://bootstrapshuffle.com) */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
