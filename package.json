@@ -67,7 +67,7 @@
     "electron-store": "^5.1.0",
     "fs-jetpack": "^2.2.3",
     "get-video-id": "^3.1.4",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^10.1.2",
     "is-url": "^1.2.4",
     "katex": "^0.11.1",
     "link-preview-js": "^1.5.0",
